@@ -29,7 +29,7 @@ namespace Library
 
             bundles.Add(new StyleBundle("~/bundles/css").Include(
                       "~/Scripts/css/bootstrap.css",
-                      "~/Scripts/css/site.css"));
+                      "~/Scripts/css/Site.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/angular")
                 .Include("~/Scripts/libs/angular/angular.js")

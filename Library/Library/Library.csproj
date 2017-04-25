@@ -205,8 +205,9 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\Api\DefaultController.cs" />
+    <Compile Include="Controllers\Api\SearchController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SearchResultController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -229,12 +230,15 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Scripts\libs\angular\angular-busy.js" />
+    <Content Include="Scripts\libs\angular\angular-busy.min.js" />
+    <Content Include="Scripts\css\images\image.jpg" />
     <Content Include="Content\toaster.css" />
     <Content Include="Content\toaster.min.css" />
-    <Content Include="Scripts\apps\controllers\controller.js" />
+    <Content Include="Scripts\apps\controllers\searchController.js" />
     <Content Include="Scripts\apps\Library.js" />
     <Content Include="Scripts\apps\services\alerlt.service.js" />
-    <Content Include="Scripts\apps\services\service.js" />
+    <Content Include="Scripts\apps\services\searchService.js" />
     <Content Include="Scripts\css\bootstrap-theme.css" />
     <Content Include="Scripts\css\bootstrap-theme.min.css" />
     <Content Include="Scripts\css\bootstrap.css" />
@@ -246,8 +250,6 @@
     <Content Include="Scripts\libs\angular\angular-animate.min.js" />
     <Content Include="Scripts\libs\angular\angular-aria.js" />
     <Content Include="Scripts\libs\angular\angular-aria.min.js" />
-    <Content Include="Scripts\libs\angular\angular-busy.js" />
-    <Content Include="Scripts\libs\angular\angular-busy.min.js" />
     <Content Include="Scripts\libs\angular\angular-cookies.js" />
     <Content Include="Scripts\libs\angular\angular-cookies.min.js" />
     <Content Include="Scripts\libs\angular\angular-csp.css" />
@@ -1062,7 +1064,8 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\libs\version.json" />
-    <Content Include="Views\Default\Index.cshtml" />
+    <Content Include="Views\Search\Index.cshtml" />
+    <Content Include="Views\SearchResult\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Library.Data\Library.Data.csproj">

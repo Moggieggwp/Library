@@ -6,9 +6,9 @@
 
     function createBusyDefaults() {
         return {
-            backdrop: true,
+            backdrop: false,
             delay: 0,
-            minDuration: 500
+            minDuration: 150
         };
     }
 })();

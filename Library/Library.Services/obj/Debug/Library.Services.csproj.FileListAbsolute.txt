@@ -1,0 +1,10 @@
+C:\Users\Dima\Documents\Library\Library\Library.Services\bin\Debug\Library.Services.dll.config
+C:\Users\Dima\Documents\Library\Library\Library.Services\bin\Debug\Library.Services.dll
+C:\Users\Dima\Documents\Library\Library\Library.Services\bin\Debug\Library.Services.pdb
+C:\Users\Dima\Documents\Library\Library\Library.Services\bin\Debug\EntityFramework.dll
+C:\Users\Dima\Documents\Library\Library\Library.Services\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Dima\Documents\Library\Library\Library.Services\bin\Debug\EntityFramework.xml
+C:\Users\Dima\Documents\Library\Library\Library.Services\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Dima\Documents\Library\Library\Library.Services\obj\Debug\Library.Services.csprojResolveAssemblyReference.cache
+C:\Users\Dima\Documents\Library\Library\Library.Services\obj\Debug\Library.Services.dll
+C:\Users\Dima\Documents\Library\Library\Library.Services\obj\Debug\Library.Services.pdb

@@ -1,5 +1,38 @@
-﻿<div ng-controller="controller" ng-init="get()">
+﻿<div ng-controller="searchController">
     <toaster-container></toaster-container>
-    <input type="text" class="form-control" ng-model="text" />
-    <button class="btn-default" ng-click="post(text)"></button>
+    <div class="container">
+        <div class="row" style="margin-top:180px">
+            <div class="well panel-transparent">
+                <h1>
+                    <span class="panelBody">Here you can find information that you need</span>
+                </h1>
+                <div class="row rowSearch">
+                    <div class="input-group">
+                        <input type="text" class="form-control search" placeholder="Find Books, Writers, Publishers and more..." ng-model="searchText" autofocus>
+                        <span class="input-group-btn">
+                            <button class="btn btn-success btn-lg" type="button" ng-click="search(searchText)"><span class="glyphicon glyphicon-search"></span></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+<style>
+    h1 {
+        text-align: center;
+    }
+
+        h1 span {
+            color: white;
+            font-family: "Courier", "monospace";
+            font-size: 120%;
+        }
+
+    input[placeholder] {
+        color: white;
+        font-family: "Courier", "monospace";
+        font-size: 120%;
+    }
+</style>

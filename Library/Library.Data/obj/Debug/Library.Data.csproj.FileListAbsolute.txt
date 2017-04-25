@@ -9,7 +9,6 @@ C:\Users\Dima\Documents\Library\Library\Library.Data\bin\Debug\EntityFramework.x
 C:\Users\Dima\Documents\Library\Library\Library.Data\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Dima\Documents\Library\Library\Library.Data\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 C:\Users\Dima\Documents\Library\Library\Library.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\Users\Dima\Documents\Library\Library\Library.Data\obj\Debug\Library.Data.csprojResolveAssemblyReference.cache
 C:\Users\Dima\Documents\Library\Library\Library.Data\obj\Debug\Library.Data.dll
 C:\Users\Dima\Documents\Library\Library\Library.Data\obj\Debug\Library.Data.pdb
 C:\Users\Dima\Documents\Library\Library\Library.Data\obj\Debug\Library.Data.Migrations.first.resources
