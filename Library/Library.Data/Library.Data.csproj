@@ -57,18 +57,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Context\IDataContext.cs" />
     <Compile Include="Context\LibraryDatabaseContext.cs" />
     <Compile Include="Entities\ApplicationUser.cs" />
     <Compile Include="Entities\Book.cs" />
+    <Compile Include="Entities\Mappings\ApplicationRoleMapping.cs" />
+    <Compile Include="Entities\Mappings\ApplicationUserMapping.cs" />
+    <Compile Include="Entities\Mappings\ApplicationUserLoginMapping.cs" />
+    <Compile Include="Entities\Mappings\ApplicationUserRoleMapping.cs" />
     <Compile Include="Entities\Mappings\BookMapping.cs" />
     <Compile Include="Entities\Mappings\OrderMapping.cs" />
     <Compile Include="Entities\Mappings\ParticipationMapping.cs" />
     <Compile Include="Entities\Mappings\PublisherMapping.cs" />
-    <Compile Include="Entities\Mappings\UserMapping.cs" />
     <Compile Include="Entities\Order.cs" />
     <Compile Include="Entities\Participation.cs" />
     <Compile Include="Entities\Publisher.cs" />
     <Compile Include="Entities\Writer.cs" />
+    <Compile Include="Migrations\201704251302017_first.cs" />
+    <Compile Include="Migrations\201704251302017_first.Designer.cs">
+      <DependentUpon>201704251302017_first.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704251448264_test.cs" />
+    <Compile Include="Migrations\201704251448264_test.Designer.cs">
+      <DependentUpon>201704251448264_test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704251505455_return.cs" />
+    <Compile Include="Migrations\201704251505455_return.Designer.cs">
+      <DependentUpon>201704251505455_return.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -76,7 +92,17 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201704251302017_first.resx">
+      <DependentUpon>201704251302017_first.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704251448264_test.resx">
+      <DependentUpon>201704251448264_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704251505455_return.resx">
+      <DependentUpon>201704251505455_return.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

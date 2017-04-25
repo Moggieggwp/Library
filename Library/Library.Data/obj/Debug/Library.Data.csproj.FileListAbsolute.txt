@@ -12,3 +12,7 @@ C:\Users\Dima\Documents\Library\Library\Library.Data\bin\Debug\Microsoft.AspNet.
 C:\Users\Dima\Documents\Library\Library\Library.Data\obj\Debug\Library.Data.csprojResolveAssemblyReference.cache
 C:\Users\Dima\Documents\Library\Library\Library.Data\obj\Debug\Library.Data.dll
 C:\Users\Dima\Documents\Library\Library\Library.Data\obj\Debug\Library.Data.pdb
+C:\Users\Dima\Documents\Library\Library\Library.Data\obj\Debug\Library.Data.Migrations.first.resources
+C:\Users\Dima\Documents\Library\Library\Library.Data\obj\Debug\Library.Data.csproj.GenerateResource.Cache
+C:\Users\Dima\Documents\Library\Library\Library.Data\obj\Debug\Library.Data.Migrations.test.resources
+C:\Users\Dima\Documents\Library\Library\Library.Data\obj\Debug\Library.Data.Migrations._return.resources

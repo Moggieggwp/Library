@@ -10,7 +10,7 @@
     function controller($q, $scope, $http, service, alertService) {
 
         $scope.text = "test";
-       
+
         $scope.post = function (text) {
             $scope.addCarPromise = createAddCarPromise(text);
             $scope.addCarPromise.then(function (data) {
@@ -20,16 +20,16 @@
         };
 
         $scope.get = function () {
-            $scope.getAllCarsPromise = createGetAllCarsPromise();
-            $scope.getAllCarsPromise.then(function (cars) {
-                console.log(data)
-            });
+            return $http.get("/Default/GetBook");
         };
 
-        var createGetAllCarsPromise = function () {
-            return $q(function (resolve, reject) {
-                service.get();
-            });
+        $scope.getOrders = function () {
+            $scope.get()
+                .success(function (orders) {
+                    console.log(orders);
+                }).error(function myfunction() {
+                    console.log("Something wrong!!!");
+                });
         };
 
         var createAddCarPromise = function (car) {

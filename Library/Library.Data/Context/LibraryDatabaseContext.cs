@@ -21,6 +21,7 @@ namespace Library.Data.Context
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+
             Database.SetInitializer(new DropCreateDatabaseIfModelChanges<LibraryDatabaseContext>());
 
             base.OnModelCreating(modelBuilder);
@@ -29,7 +30,7 @@ namespace Library.Data.Context
             modelBuilder.Configurations.Add(new OrderMapping());
             modelBuilder.Configurations.Add(new ParticipationMapping());
             modelBuilder.Configurations.Add(new PublisherMapping());
-            modelBuilder.Configurations.Add(new UserMapping());
+            modelBuilder.Configurations.Add(new ApplicationUserMapping());
 
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();

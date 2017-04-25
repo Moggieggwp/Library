@@ -11,6 +11,9 @@ namespace Library.Data.Entities.Mappings
             HasMany(x => x.Books)
                 .WithOptional(x => x.Order)
                 .WillCascadeOnDelete(false);
+
+            HasRequired(x => x.User)
+                .WithMany(x => x.Orders);
         }
     }
 }

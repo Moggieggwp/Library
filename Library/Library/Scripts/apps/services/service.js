@@ -8,7 +8,7 @@
     service.$inject = ['$http'];
 
     function service($http) {
-        var url = "/api/Default";
+        var url = "/Default";
 
         this.post = function (data) {
             return $http({
@@ -20,7 +20,7 @@
         };
 
         this.get = function () {
-            return $http.get(url + "/Get1");
+            return $http.get(url + "/GetBook");
         };
     }
 })();
