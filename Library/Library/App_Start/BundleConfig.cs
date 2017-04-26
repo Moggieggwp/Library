@@ -10,6 +10,7 @@ namespace Library
         {
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/bootstrap.css",
+                "~/Content/bootstrap.min.css",
                 "~/Content/site.css",
                 "~/Content/angular-busy.css",
                 "~/Content/toaster.css",
@@ -28,7 +29,7 @@ namespace Library
                       "~/Scripts/libs/respond.js"));
 
             bundles.Add(new StyleBundle("~/bundles/css").Include(
-                      "~/Scripts/css/bootstrap.css",
+                      //"~/Scripts/css/bootstrap.css",
                       "~/Scripts/css/Site.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/angular")

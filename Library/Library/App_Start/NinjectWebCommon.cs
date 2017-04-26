@@ -12,6 +12,16 @@ namespace Library.App_Start
     using Ninject.Web.Common;
     using Data.Context;
     using System.Data.Entity;
+    using Data.Repositories.Base;
+    using Data.Repositories.Base.Interfaces;
+    using Data.Repositories.Book.Interfaces;
+    using Data.Repositories.Book;
+    using Data.Repositories.Writer;
+    using Data.Repositories.Writer.Interfaces;
+    using Data.Repositories.Publisher.Interfaces;
+    using Data.Repositories.Publisher;
+    using Services.Interfaces;
+    using Services;
 
     public static class NinjectWebCommon 
     {
@@ -64,6 +74,15 @@ namespace Library.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<DbContext>().To<LibraryDatabaseContext>().InRequestScope();
+
+            kernel.Bind<IRepository<Data.Entities.Book>>().To<Repository<Data.Entities.Book>>().InRequestScope();
+            kernel.Bind<IBookRepository>().To<BookRepository>().InRequestScope();
+            kernel.Bind<IRepository<Data.Entities.Publisher>>().To<Repository<Data.Entities.Publisher>>().InRequestScope();
+            kernel.Bind<IPublisherRepository>().To<PublisherRepository>().InRequestScope();
+            kernel.Bind<IRepository<Data.Entities.Writer>>().To<Repository<Data.Entities.Writer>>().InRequestScope();
+            kernel.Bind<IWriterRepository>().To<WriterRepository>().InRequestScope();
+
+            kernel.Bind<ISearchService>().To<SearchService>().InRequestScope();
         }
     }
 }

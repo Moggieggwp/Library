@@ -213,7 +213,10 @@
     </Compile>
     <Compile Include="Models\Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Interfaces\ISearchService.cs" />
+    <Compile Include="Services\SearchService.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\SearchResultViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\angular-busy.css" />
@@ -230,6 +233,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Scripts\css\images\test.jpg" />
     <Content Include="Scripts\libs\angular\angular-busy.js" />
     <Content Include="Scripts\libs\angular\angular-busy.min.js" />
     <Content Include="Scripts\css\images\image.jpg" />
@@ -1064,7 +1068,6 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\libs\version.json" />
-    <Content Include="Views\Search\Index.cshtml" />
     <Content Include="Views\SearchResult\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

@@ -59,6 +59,9 @@
   <ItemGroup>
     <Compile Include="Context\IDataContext.cs" />
     <Compile Include="Context\LibraryDatabaseContext.cs" />
+    <Compile Include="DTOs\BookDTO.cs" />
+    <Compile Include="DTOs\PublisherDTO.cs" />
+    <Compile Include="DTOs\WriterDTO.cs" />
     <Compile Include="Entities\ApplicationUser.cs" />
     <Compile Include="Entities\Book.cs" />
     <Compile Include="Entities\Mappings\ApplicationRoleMapping.cs" />
@@ -87,6 +90,14 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Base\Interfaces\IRepository.cs" />
+    <Compile Include="Repositories\Base\Repository.cs" />
+    <Compile Include="Repositories\Book\BookRepository.cs" />
+    <Compile Include="Repositories\Book\Interfaces\IBookRepository.cs" />
+    <Compile Include="Repositories\Publisher\Interfaces\IPublisherRepository.cs" />
+    <Compile Include="Repositories\Publisher\PublisherRepository.cs" />
+    <Compile Include="Repositories\Writer\Interfaces\IWriterRepository.cs" />
+    <Compile Include="Repositories\Writer\WriterRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -103,6 +114,7 @@
       <DependentUpon>201704251505455_return.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -11,7 +11,7 @@
         var url = "/api/Search";
 
         this.searchItems = function (searchText) {
-            return $http.get(url + "/GetItems?searchText=" + searchText);
+            return $http.get(url + "/GetItems?partialName=" + searchText);
         };
     }
 })();

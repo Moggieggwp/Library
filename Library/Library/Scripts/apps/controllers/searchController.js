@@ -8,19 +8,29 @@
     searchController.$inject = ['$q', '$scope', '$http', 'searchService', 'alertService'];
 
     function searchController($q, $scope, $http, searchService, alertService) {
+        $scope.isHomePage = true;
+        $scope.isSearchResultPage = false;
+        $scope.books = null;
+        $scope.publishers = null;
+        $scope.writers = null;
+        $scope.imageName = "test.jpg";
+
 
         $scope.search = function (searchText) {
-            window.sessionStorage.setItem("search", searchText);
-            window.location = "/SearchResult/Index";
+            $scope.isHomePage = false;
+            $scope.isSearchResultPage = true;
+            $scope.getSearchItems(searchText);
         };
 
-        $scope.getSearchItems = function (car) {
-            var searchText = window.sessionStorage.getItem("search");
-
+        $scope.getSearchItems = function (searchText) {
             $scope.getSearchItemsPromise = createGetSearchItemsPromise(searchText);
-            $scope.getSearchItemsPromise.then(function (orders) {
-                alertService.showSuccess("Car successfuly added");
-                console.log(orders.data.id);
+            $scope.getSearchItemsPromise.then(function (items) {
+                $scope.books = items.data.books;
+                $scope.publishers = items.data.publishers;
+                $scope.writers = items.data.writers;
+
+
+                alertService.showSuccess("Items found");
             });
         };
 

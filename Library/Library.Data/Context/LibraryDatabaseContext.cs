@@ -7,6 +7,9 @@ namespace Library.Data.Context
 {
     public class LibraryDatabaseContext : DbContext
     {
+        private static int id = 0;
+        private int idObj = ++id;
+
         public DbSet<Book> Books { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Participation> Participations { get; set; }

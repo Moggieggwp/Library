@@ -12,6 +12,7 @@ namespace Library.Data.Entities
         public int Pages { get; set; }
         public bool IsOrdered { get; set; }
         public DateTime IssueYear { get; set; }
+        public string ImagePath { get; set; }
 
         public virtual Publisher Publisher { get; set; }
         public virtual Order Order { get; set; }

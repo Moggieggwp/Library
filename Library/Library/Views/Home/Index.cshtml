@@ -1,6 +1,6 @@
 ﻿<div ng-controller="searchController">
     <toaster-container></toaster-container>
-    <div class="container">
+    <div class="container" ng-if="isHomePage">
         <div class="row" style="margin-top:180px">
             <div class="well panel-transparent">
                 <h1>
@@ -15,6 +15,30 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="container" ng-if="isSearchResultPage" cg-busy="[getSearchItemsPromise]">
+        <div class="well panel-transparent" ng-if="books.length!=0" style="margin-top:50px">
+            <h1>
+                <span>Books</span>
+            </h1>
+            <div class="well searchContent" ng-repeat="book in books" style="">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img ng-src="~/Scripts/css/images/{{imageName}}" height="400" width="300" />
+                    </div>
+                    <div class="col-md-4">
+                        <label style="color:white; font-size:120%">{{book.title}}</label>
+                    </div>
+                </div>
+                @*<label style="color:white; font-size:120%">{{book.title}}</label>*@
+            </div>
+        </div>
+        <div class="well panel-transparent" ng-if="writers.length!=0" style="margin-top:50px">
+            writers
+        </div>
+        <div class="well panel-transparent" ng-if="publishers.length!=0" style="margin-top:50px">
+            publishers
         </div>
     </div>
 </div>
@@ -34,5 +58,10 @@
         color: white;
         font-family: "Courier", "monospace";
         font-size: 120%;
+    }
+
+    .searchContent {
+        margin-top: 10px;
+        background-color: rgba(0, 0, 0, 0.25);
     }
 </style>

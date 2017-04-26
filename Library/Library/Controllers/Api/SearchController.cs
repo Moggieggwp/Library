@@ -1,25 +1,24 @@
-﻿using Library.Data.Entities;
-using Library.Models;
-using System.Data.Entity;
-using System.Linq;
+﻿using Library.Services.Interfaces;
+using Library.ViewModels;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace Library.Controllers.Api
 {
     public class SearchController : ApiController
     {
-        private readonly IDbSet<Book> entityDataSet;
+        private readonly ISearchService searchService;
 
-        public SearchController(DbContext databaseContext)
+        public SearchController(
+            ISearchService searchService)
         {
-            entityDataSet = databaseContext.Set<Book>();
+            this.searchService = searchService;
         }
 
         [HttpGet]
-        public Test GetItems(string searchText)
+        public async Task<SearchResultViewModel> GetItems(string partialName)
         {
-            var book = entityDataSet.FirstOrDefault();
-            return new Test { Id = book.Id, Name = book.Title };
+            return await searchService.GetItems(partialName);
         }
     }
 }
