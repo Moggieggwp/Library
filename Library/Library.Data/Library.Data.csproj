@@ -88,6 +88,18 @@
     <Compile Include="Migrations\201704251505455_return.Designer.cs">
       <DependentUpon>201704251505455_return.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704261533457_addedImages.cs" />
+    <Compile Include="Migrations\201704261533457_addedImages.Designer.cs">
+      <DependentUpon>201704261533457_addedImages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704261922106_addedImagesToAllParticipients.cs" />
+    <Compile Include="Migrations\201704261922106_addedImagesToAllParticipients.Designer.cs">
+      <DependentUpon>201704261922106_addedImagesToAllParticipients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704261927383_changedWriterFullName.cs" />
+    <Compile Include="Migrations\201704261927383_changedWriterFullName.Designer.cs">
+      <DependentUpon>201704261927383_changedWriterFullName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Base\Interfaces\IRepository.cs" />
@@ -112,6 +124,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704251505455_return.resx">
       <DependentUpon>201704251505455_return.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704261533457_addedImages.resx">
+      <DependentUpon>201704261533457_addedImages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704261922106_addedImagesToAllParticipients.resx">
+      <DependentUpon>201704261922106_addedImagesToAllParticipients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704261927383_changedWriterFullName.resx">
+      <DependentUpon>201704261927383_changedWriterFullName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

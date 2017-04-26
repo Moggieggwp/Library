@@ -17,8 +17,6 @@
 
 
         $scope.search = function (searchText) {
-            $scope.isHomePage = false;
-            $scope.isSearchResultPage = true;
             $scope.getSearchItems(searchText);
         };
 
@@ -28,8 +26,8 @@
                 $scope.books = items.data.books;
                 $scope.publishers = items.data.publishers;
                 $scope.writers = items.data.writers;
-
-
+                $scope.isHomePage = false;
+                $scope.isSearchResultPage = true;
                 alertService.showSuccess("Items found");
             });
         };

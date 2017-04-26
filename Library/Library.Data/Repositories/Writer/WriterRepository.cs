@@ -19,12 +19,12 @@ namespace Library.Data.Repositories.Writer
         public Task<List<Entities.Writer>> GetWritersByPartialName(string partialName)
         {
             return publisherDataSet
-                .Where(x => (x.FirstName + " " + x.LastName).StartsWith(partialName)
-                || (x.FirstName + " " + x.LastName).StartsWith(partialName.ToUpper())
-                || (x.FirstName + " " + x.LastName).StartsWith(partialName.ToLower())
-                || (x.FirstName + " " + x.LastName).Contains(" " + partialName)
-                || (x.FirstName + " " + x.LastName).Contains(" " + partialName.ToUpper())
-                || (x.FirstName + " " + x.LastName).Contains(" " + partialName.ToLower()))
+                .Where(x => x.FullName.StartsWith(partialName)
+                || x.FullName.StartsWith(partialName.ToUpper())
+                || x.FullName.StartsWith(partialName.ToLower())
+                || x.FullName .Contains(" " + partialName)
+                || x.FullName.Contains(" " + partialName.ToUpper())
+                || x.FullName.Contains(" " + partialName.ToLower()))
                 //|| x.LastName.StartsWith(partialName)
                 //|| x.LastName.Contains(" " + partialName)
                 //|| x.LastName.Contains(" " + partialName.ToUpper())

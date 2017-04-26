@@ -10,5 +10,6 @@ namespace Library.Data.DTOs
         public decimal Fare { get; set; }
         public int Pages { get; set; }
         public DateTime IssueYear { get; set; }
+        public string ImageName { get; set; }
     }
 }

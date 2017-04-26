@@ -16,3 +16,6 @@ C:\Users\Dima\Documents\Library\Library\Library.Data\obj\Debug\Library.Data.cspr
 C:\Users\Dima\Documents\Library\Library\Library.Data\obj\Debug\Library.Data.Migrations.test.resources
 C:\Users\Dima\Documents\Library\Library\Library.Data\obj\Debug\Library.Data.Migrations._return.resources
 C:\Users\Dima\Documents\Library\Library\Library.Data\obj\Debug\Library.Data.csprojResolveAssemblyReference.cache
+C:\Users\Dima\Documents\Library\Library\Library.Data\obj\Debug\Library.Data.Migrations.addedImages.resources
+C:\Users\Dima\Documents\Library\Library\Library.Data\obj\Debug\Library.Data.Migrations.addedImagesToAllParticipients.resources
+C:\Users\Dima\Documents\Library\Library\Library.Data\obj\Debug\Library.Data.Migrations.changedWriterFullName.resources

@@ -53,7 +53,8 @@ namespace Library.Services
                 Description = book.Description,
                 Fare = book.Fare,
                 IssueYear = book.IssueYear.Date,
-                Pages = book.Pages
+                Pages = book.Pages,
+                ImageName = book.ImageName
             };
         }
 
@@ -63,7 +64,8 @@ namespace Library.Services
             {
                 PublisherId = publisher.Id,
                 City = publisher.City,
-                Title = publisher.Title
+                Title = publisher.Title,
+                ImageName = publisher.ImageName
             };
         }
 
@@ -73,8 +75,8 @@ namespace Library.Services
             {
                 WriterId = writer.Id,
                 BirthDate = writer.BirthDate.Date,
-                FirstName = writer.FirstName,
-                LastName = writer.LastName
+                FullName = writer.FullName,
+                ImageName = writer.ImageName
             };
         }
     }
