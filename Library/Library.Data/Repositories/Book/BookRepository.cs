@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using Library.Data.Context;
 
 namespace Library.Data.Repositories.Book
 {
@@ -11,7 +12,7 @@ namespace Library.Data.Repositories.Book
     {
         private readonly IDbSet<Entities.Book> bookDataSet;
 
-        public BookRepository(DbContext dataContext) : base(dataContext)
+        public BookRepository(IDataContext dataContext) : base(dataContext)
         {
             this.bookDataSet = dataContext.Set<Entities.Book>();
         }

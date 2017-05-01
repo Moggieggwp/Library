@@ -7,18 +7,14 @@ namespace Library.Data.Entities.Mappings
     {
         public ApplicationUserMapping()
         {
-            HasKey(p => p.UserId);
-            //Map(m =>
-            //{
-            //    m.MapInheritedProperties();
-            //    m.ToTable("ApplicationUsers");
-            //});
+            HasKey(p => p.Id);
 
-            //Property(u => u.FirstName).IsRequired();
-            //Property(u => u.LastName).IsRequired();
 
             HasMany(x => x.Orders)
                 .WithRequired(x => x.User);
+
+            HasMany(entity => entity.Logins).WithRequired().HasForeignKey(entity => entity.UserId);
+            HasMany(entity => entity.Roles).WithRequired().HasForeignKey(entity => entity.UserId);
         }
     }
 }

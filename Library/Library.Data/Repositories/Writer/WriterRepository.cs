@@ -1,4 +1,5 @@
-﻿using Library.Data.Repositories.Base;
+﻿using Library.Data.Context;
+using Library.Data.Repositories.Base;
 using Library.Data.Repositories.Writer.Interfaces;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -11,7 +12,7 @@ namespace Library.Data.Repositories.Writer
     {
         private readonly IDbSet<Entities.Writer> publisherDataSet;
 
-        public WriterRepository(DbContext dataContext) : base(dataContext)
+        public WriterRepository(IDataContext dataContext) : base(dataContext)
         {
             this.publisherDataSet = dataContext.Set<Entities.Writer>();
         }

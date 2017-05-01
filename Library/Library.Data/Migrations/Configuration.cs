@@ -16,10 +16,10 @@ namespace Library.Data.Migrations
         protected override void Seed(Library.Data.Context.LibraryDatabaseContext context)
         {
             var user = context.Users.FirstOrDefault();
-            context.Writers.Add(new Entities.Writer {ImageName="jkRowling.jpg", BirthDate = DateTime.Now, FullName = "J. K. Rowling" });
+            context.Writers.Add(new Entities.Writer { ImageName = "jkRowling.jpg", BirthDate = DateTime.Now, FullName = "J. K. Rowling" });
             context.SaveChanges();
             var writer = context.Writers.FirstOrDefault();
-            context.Publishers.Add(new Entities.Publisher { ImageName= "bloomsburyPublishing.jpg", City = "London", Title = "Bloomsbury Publishing" });
+            context.Publishers.Add(new Entities.Publisher { ImageName = "bloomsburyPublishing.jpg", City = "London", Title = "Bloomsbury Publishing" });
             context.SaveChanges();
             var publisher = context.Publishers.FirstOrDefault();
             context.Books.Add(new Entities.Book { ImageName = "harry1.jpg", IssueYear = DateTime.Now, IsOrdered = false, Description = "Harry Potter has no idea how famous he is. That's because he's being raised by his miserable aunt and uncle who are terrified Harry will learn that he's really a wizard, just as his parents were. But everything changes when Harry is summoned to attend an infamous school for wizards, and he begins to discover some clues about his illustrious birthright. From the surprising way he is greeted by a lovable giant, to the unique curriculum and colorful faculty at his unusual school, Harry finds himself drawn deep inside a mystical world he never knew existed and closer to his own noble destiny.", Title = "Harry Potter and the Sorcerer's Stone", Publisher = publisher, Fare = 10, Pages = 432 });
@@ -30,8 +30,8 @@ namespace Library.Data.Migrations
             context.Participations.Add(new Entities.Participation { Book = book, Writer = writer });
             context.SaveChanges();
 
-            //context.Orders.Add(new Entities.Order { OrderDate = DateTime.Now, ReturnDate = DateTime.Now, User = user, Books = new List<Entities.Book> { book } });
-            //context.SaveChanges();
+            context.Orders.Add(new Entities.Order { OrderDate = DateTime.Now, ReturnDate = DateTime.Now, User = user, Books = new List<Entities.Book> { book } });
+            context.SaveChanges();
 
             //  This method will be called after migrating to the latest version.
 

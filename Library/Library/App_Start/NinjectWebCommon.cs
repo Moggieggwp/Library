@@ -22,21 +22,28 @@ namespace Library.App_Start
     using Data.Repositories.Publisher;
     using Services.Interfaces;
     using Services;
+    using Data.Entities;
+    using Microsoft.Owin.Security;
+    using Ninject.Parameters;
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using Microsoft.AspNet.Identity;
+    using EasyFlights.Web.Infrastructure;
+    using Microsoft.AspNet.Identity.Owin;
 
-    public static class NinjectWebCommon 
+    public static class NinjectWebCommon
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
 
         /// <summary>
         /// Starts the application
         /// </summary>
-        public static void Start() 
+        public static void Start()
         {
             DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
             bootstrapper.Initialize(CreateKernel);
         }
-        
+
         /// <summary>
         /// Stops the application.
         /// </summary>
@@ -44,7 +51,7 @@ namespace Library.App_Start
         {
             bootstrapper.ShutDown();
         }
-        
+
         /// <summary>
         /// Creates the kernel that will manage your application.
         /// </summary>
@@ -73,7 +80,25 @@ namespace Library.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<DbContext>().To<LibraryDatabaseContext>().InRequestScope();
+            kernel.Bind<IAuthenticationManager>().ToMethod((context) => System.Web.HttpContext.Current.GetOwinContext().Authentication).InRequestScope();
+            kernel.Bind<IApplicationUserManager>().To<ApplicationUserManager>().InRequestScope();
+            //// kernel.Bind<IUserStore<ApplicationUser>>().To<UserStore<ApplicationUser>>().InRequestScope();
+            // kernel.Bind<IUserStore<ApplicationUser>>().To<ApplicationUserStore>().InRequestScope();
+
+            //kernel.Bind<IdentityFactoryOptions<ApplicationUserManager>>()
+            //    .ToMethod(x => new IdentityFactoryOptions<ApplicationUserManager>()
+            //    {
+            //        DataProtectionProvider = Startup.DataProtectionProvider
+            //    });
+
+            kernel.Bind<LibraryDatabaseContext>().ToSelf().InRequestScope();
+            kernel.Bind<IDataContext>().To<LibraryDatabaseContext>().InRequestScope();
+
+            kernel.Bind<IUserStore<ApplicationUser>>().To<ApplicationUserStore>().InRequestScope();
+
+            //kernel.Bind<IUserStore<ApplicationUser>>()
+            //    .To<UserStore<ApplicationUser>>().InRequestScope();
+            //.WithConstructorArgument(new ConstructorArgument("context", new LibraryDatabaseContext()));
 
             kernel.Bind<IRepository<Data.Entities.Book>>().To<Repository<Data.Entities.Book>>().InRequestScope();
             kernel.Bind<IBookRepository>().To<BookRepository>().InRequestScope();
@@ -83,6 +108,14 @@ namespace Library.App_Start
             kernel.Bind<IWriterRepository>().To<WriterRepository>().InRequestScope();
 
             kernel.Bind<ISearchService>().To<SearchService>().InRequestScope();
+        }
+
+        public class ApplicationUserStore : UserStore<ApplicationUser>
+        {
+            public ApplicationUserStore(LibraryDatabaseContext context)
+                : base(context)
+            {
+            }
         }
     }
 }

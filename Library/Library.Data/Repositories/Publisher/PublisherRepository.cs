@@ -1,4 +1,5 @@
-﻿using Library.Data.Repositories.Base;
+﻿using Library.Data.Context;
+using Library.Data.Repositories.Base;
 using Library.Data.Repositories.Publisher.Interfaces;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -11,7 +12,7 @@ namespace Library.Data.Repositories.Publisher
     {
         private readonly IDbSet<Entities.Publisher> publisherDataSet;
 
-        public PublisherRepository(DbContext dataContext) : base(dataContext)
+        public PublisherRepository(IDataContext dataContext) : base(dataContext)
         {
             this.publisherDataSet = dataContext.Set<Entities.Publisher>();
         }

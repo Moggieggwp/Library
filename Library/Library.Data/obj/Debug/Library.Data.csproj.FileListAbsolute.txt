@@ -19,3 +19,4 @@ C:\Users\Dima\Documents\Library\Library\Library.Data\obj\Debug\Library.Data.cspr
 C:\Users\Dima\Documents\Library\Library\Library.Data\obj\Debug\Library.Data.Migrations.addedImages.resources
 C:\Users\Dima\Documents\Library\Library\Library.Data\obj\Debug\Library.Data.Migrations.addedImagesToAllParticipients.resources
 C:\Users\Dima\Documents\Library\Library\Library.Data\obj\Debug\Library.Data.Migrations.changedWriterFullName.resources
+C:\Users\Dima\Documents\Library\Library\Library.Data\obj\Debug\Library.Data.Migrations.addedIdentityToDatabase.resources

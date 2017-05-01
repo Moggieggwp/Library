@@ -10,9 +10,7 @@ namespace Library
     {
         public void Configuration(IAppBuilder app)
         {
-            //HttpConfiguration config = GlobalConfiguration.Configuration;
-            //config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-            //config.Formatters.JsonFormatter.UseDataContractJsonSerializer = false;
+            ConfigureAuth(app);
         }
     }
 }

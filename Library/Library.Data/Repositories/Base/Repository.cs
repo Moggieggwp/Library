@@ -1,4 +1,5 @@
-﻿using Library.Data.Repositories.Base.Interfaces;
+﻿using Library.Data.Context;
+using Library.Data.Repositories.Base.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -9,9 +10,9 @@ namespace Library.Data.Repositories.Base
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-        private DbContext dataContext;
+        private IDataContext dataContext;
 
-        public Repository(DbContext dataContext)
+        public Repository(IDataContext dataContext)
         {
             this.dataContext = dataContext;
         }
