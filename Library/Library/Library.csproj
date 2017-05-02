@@ -339,6 +339,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Api\AccountController.cs" />
     <Compile Include="Controllers\Api\SearchController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -1212,6 +1213,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\libs\version.json" />
     <Content Include="Views\SearchResult\Index.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Library.Data\Library.Data.csproj">

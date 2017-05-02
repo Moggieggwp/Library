@@ -1,0 +1,130 @@
+﻿<div class="container">
+    <div class="text-center">
+        <h2 style="color:white">Sign In!</h2>
+    </div>
+    &nbsp;
+    <div class="login col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div class="panel-info">
+            <div class="well loginBorder">
+                <div class="form-horizontal loginForm" role="form">
+                    <div class="inner-addon left-addon emailInput">
+                        <i class="glyphicon glyphicon-envelope"></i>
+                        <input id="login-email" type="text" class="form-control" name="email" value="" placeholder="Email">
+                    </div>
+                    <div class="inner-addon left-addon passwordInput">
+                        <i class="glyphicon glyphicon-lock"></i>
+                        <input id="login-password" type="password" class="form-control" name="password" placeholder="Password">
+                    </div>
+                    <div class="forgotYourPasswordCheckbox"><a href="#">Forgot your password?</a></div>
+                    <div class="input-group">
+                        <div class="checkbox">
+                            <label style="color:white">
+                                <input id="login-remember" type="checkbox" name="remember"> Remember me
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group loginButton">
+                        <div class="col-md-12">
+                            <button id="btn-login" class="btn btn-success col-md-12">Sign In  </button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12 control">
+                            <div class="notRegisteredYet" style="color:white">
+                                Not registered yet?
+                                <a href="@Url.Action("Register", "Account")">Create an account</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .socialMediaLoginTitle {
+        text-align: center;
+        padding-bottom: 0;
+    }
+
+    .socialMediaLoginDescription {
+        text-align: center;
+    }
+
+    a {
+        color: white;
+        opacity: 0.9;
+    }
+
+        a:hover {
+            color: white;
+            opacity: 1;
+        }
+
+    .loginFacebookButton {
+        background: #3b5998;
+    }
+
+    .loginBorder {
+        background: rgba(0, 0, 0, 0.4);
+    }
+
+    .login {
+        margin-top: 50px;
+    }
+
+    .emailInput {
+        margin-bottom: 25px;
+    }
+
+    .passwordInput {
+        margin-bottom: 25px;
+    }
+
+    .forgotYourPasswordCheckbox {
+        float: right;
+        font-size: 80%;
+        position: relative;
+        top: -10px;
+    }
+
+    .notRegisteredYet {
+        border-top: 1px solid#888;
+        padding-top: 15px;
+        font-size: 85%;
+    }
+
+    .loginButton {
+        margin-top: 10px;
+    }
+
+    /* enable absolute positioning */
+    .inner-addon {
+        position: relative;
+    }
+
+        /* style glyph */
+        .inner-addon .glyphicon {
+            position: absolute;
+            padding: 10px;
+            pointer-events: none;
+        }
+
+    /* align glyph */
+    .left-addon .glyphicon {
+        left: 0px;
+    }
+
+    .right-addon .glyphicon {
+        right: 0px;
+    }
+
+    /* add padding  */
+    .left-addon input {
+        padding-left: 30px;
+    }
+
+    .right-addon input {
+        padding-right: 30px;
+    }
+</style>

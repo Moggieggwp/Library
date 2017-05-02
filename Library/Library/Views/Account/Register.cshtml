@@ -1,0 +1,112 @@
+﻿<div>
+    <!-- Component title -->
+    <div class="text-center sign-up-title">
+        <h2 style="color:white">Sign Up!</h2>
+    </div>
+    &nbsp;
+    <!-- SignUp form -->
+    <div class="well sign-up-form">
+
+        <!-- User's full name -->
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label style="color:white" for="userName">Name *</label>
+                <div class="inner-addon left-addon">
+                    <i class="glyphicon glyphicon-user"></i>
+                    <input id="userName" class="form-control" type="text" />
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label style="color:white" for="userSurname">Surname *</label>
+                <div class="inner-addon left-addon">
+                    <i class="glyphicon glyphicon-user"></i>
+                    <input id="userSurname" class="form-control" type="text" />
+                </div>
+            </div>
+        </div>
+
+        <!-- User's contanct info -->
+        <div>
+            <div class="form-group">
+                <label style="color:white" for="userPhone">Phone *</label>
+                <div class="inner-addon left-addon">
+                    <i class="glyphicon glyphicon-earphone"></i>
+                    <input id="userPhone" class="form-control" type="text" placeholder="e.g. 1-202-555-0151" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label style="color:white" for="userEmail">E-mail *</label>
+                <div class="inner-addon left-addon">
+                    <i class="glyphicon glyphicon-envelope"></i>
+                    <input id="userEmail" class="form-control" type="email" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Password -->
+        <div>
+            <div class="form-group">
+                <label style="color:white" for="userPassword">Password *</label>
+                <div class="inner-addon left-addon">
+                    <i class="glyphicon glyphicon-lock"></i>
+                    <input id="userPassword" class="form-control" type="password" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label style="color:white" for="userPasswordConfirm">Password (confirm) *</label>
+                <div class="inner-addon left-addon">
+                    <i class="glyphicon glyphicon-lock"></i>
+                    <input id="userPasswordConfirm" class="form-control" type="password" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Confirmation -->
+        <div class="text-center">
+            <button class="btn btn-success btn-block">Sign Up</button>
+        </div>
+
+        <div class="help-block">
+            * required fields
+        </div>
+    </div>
+</div>
+<style>
+    .sign-up-form {
+        max-width: 530px;
+        padding: 15px;
+        margin: 0 auto;
+        border-width: thin;
+        border-color: white;
+        background: rgba(0, 0, 0, 0.4);
+    }
+        /* enable absolute positioning */
+    .inner-addon {
+        position: relative;
+    }
+
+        /* style glyph */
+        .inner-addon .glyphicon {
+            position: absolute;
+            padding: 10px;
+            pointer-events: none;
+        }
+
+    /* align glyph */
+    .left-addon .glyphicon {
+        left: 0px;
+    }
+
+    .right-addon .glyphicon {
+        right: 0px;
+    }
+
+    /* add padding  */
+    .left-addon input {
+        padding-left: 30px;
+    }
+
+    .right-addon input {
+        padding-right: 30px;
+    }
+</style>
