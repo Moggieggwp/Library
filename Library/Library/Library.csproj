@@ -373,6 +373,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Scripts\apps\controllers\accountController.js" />
+    <Content Include="Scripts\apps\services\accountService.js" />
     <Content Include="Scripts\css\images\bloomsburyPublishing.jpg" />
     <Content Include="Scripts\css\images\harry1.jpg" />
     <Content Include="Scripts\css\images\harry2.jpg" />

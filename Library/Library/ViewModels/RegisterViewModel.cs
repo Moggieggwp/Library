@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace EasyFlights.Web.ViewModels.AccountViewModels
+namespace Library.ViewModels
 {
     public class RegisterViewModel
     {

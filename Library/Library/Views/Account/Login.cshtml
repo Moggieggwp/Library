@@ -1,38 +1,40 @@
-﻿<div class="container">
-    <div class="text-center">
-        <h2 style="color:white">Sign In!</h2>
-    </div>
-    &nbsp;
-    <div class="login col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-        <div class="panel-info">
-            <div class="well loginBorder">
-                <div class="form-horizontal loginForm" role="form">
-                    <div class="inner-addon left-addon emailInput">
-                        <i class="glyphicon glyphicon-envelope"></i>
-                        <input id="login-email" type="text" class="form-control" name="email" value="" placeholder="Email">
-                    </div>
-                    <div class="inner-addon left-addon passwordInput">
-                        <i class="glyphicon glyphicon-lock"></i>
-                        <input id="login-password" type="password" class="form-control" name="password" placeholder="Password">
-                    </div>
-                    <div class="forgotYourPasswordCheckbox"><a href="#">Forgot your password?</a></div>
-                    <div class="input-group">
-                        <div class="checkbox">
-                            <label style="color:white">
-                                <input id="login-remember" type="checkbox" name="remember"> Remember me
-                            </label>
+﻿<div ng-controller="accountController" cg-busy="[loginPromise]">
+    <div class="container">
+        <div class="text-center">
+            <h2 style="color:white">Sign In!</h2>
+        </div>
+        &nbsp;
+        <div class="login col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <div class="panel-info">
+                <div class="well loginBorder">
+                    <div class="form-horizontal loginForm" role="form">
+                        <div class="inner-addon left-addon emailInput">
+                            <i class="glyphicon glyphicon-envelope"></i>
+                            <input id="login-email" type="text" class="form-control" name="email" value="" ng-model="loginViewModel.userEmail" placeholder="Email">
                         </div>
-                    </div>
-                    <div class="form-group loginButton">
-                        <div class="col-md-12">
-                            <button id="btn-login" class="btn btn-success col-md-12">Sign In  </button>
+                        <div class="inner-addon left-addon passwordInput">
+                            <i class="glyphicon glyphicon-lock"></i>
+                            <input id="login-password" type="password" class="form-control" name="password" ng-model="loginViewModel.userPassword" placeholder="Password">
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-12 control">
-                            <div class="notRegisteredYet" style="color:white">
-                                Not registered yet?
-                                <a href="@Url.Action("Register", "Account")">Create an account</a>
+                        <div class="forgotYourPasswordCheckbox"><a href="#">Forgot your password?</a></div>
+                        <div class="input-group">
+                            <div class="checkbox">
+                                <label style="color:white">
+                                    <input id="login-remember" type="checkbox" name="remember"> Remember me
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group loginButton">
+                            <div class="col-md-12">
+                                <button id="btn-login" class="btn btn-success col-md-12" ng-click="login(loginViewModel)">Sign In  </button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12 control">
+                                <div class="notRegisteredYet" style="color:white">
+                                    Not registered yet?
+                                    <a href="@Url.Action("Register", "Account")">Create an account</a>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -5,12 +5,12 @@ using System.Web.Http;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 using EasyFlights.Web.Infrastructure;
-using EasyFlights.Web.ViewModels.AccountViewModels;
 using Library.Data.Entities;
+using Library.ViewModels;
 
 namespace Library.Controllers.Api
 {
-    [RoutePrefix("api/account")]
+    [RoutePrefix("api/Account")]
     public class AccountController : ApiController
     {
         private readonly IAuthenticationManager authenticationManager;
@@ -87,8 +87,24 @@ namespace Library.Controllers.Api
 
             ClaimsIdentity claim = await this.applicationUserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
             this.authenticationManager.SignIn(new AuthenticationProperties { IsPersistent = true }, claim);
-            return this.Ok();
-        }        
+            return Ok();
+        }
+
+        [Route("Login")]
+        [HttpGet]
+        public async Task<IHttpActionResult> Login(string UserEmail, string UserPassword)
+        {
+            this.authenticationManager.SignOut();
+            var user = await this.applicationUserManager.FindAsync(UserEmail, UserPassword);
+            if (user == null)
+            {
+                return GetErrorResult(IdentityResult.Failed());
+            }
+
+            ClaimsIdentity claim = await this.applicationUserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
+            this.authenticationManager.SignIn(new AuthenticationProperties { IsPersistent = true }, claim);
+            return Ok();
+        }
 
         // POST api/Account/Logout
         [Route("SignOut")]
