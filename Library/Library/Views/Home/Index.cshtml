@@ -17,18 +17,23 @@
             </div>
         </div>
     </div>
-    <div class="container" ng-if="isSearchResultPage">
+    <div class="container" ng-if="isSearchResultPage" cg-busy="[getBookDetailsPromise]">
         <div class="well panel-transparent" ng-if="books.length!=0" style="margin-top:50px">
             <h1>
                 <span>Books</span>
             </h1>
-            <div class="well searchContent" ng-repeat="book in books" style="">
+            <div class="well searchContent " ng-repeat="book in books">
                 <div class="row">
                     <div class="col-md-4">
                         <img ng-src="~/Scripts/css/images/{{book.imageName}}" height="400" width="300" />
+                        <button class="btn btn-success detailsButton" ng-click="getBookDetails(book)" style="">Details</button>
                     </div>
-                    <div class="col-md-4">
-                        <label style="color:white; font-size:120%">{{book.description}}</label>
+                    <div class="col-md-6">
+                        <div class="imageDetails">
+                            <label class="one" style="color:white; font-size:150%">{{book.title}}</label>
+                            <hr />
+                            <label class="two" style="color:white; font-size:120%">{{book.description}}</label>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -40,7 +45,7 @@
             <div class="well searchContent" ng-repeat="writer in writers" style="">
                 <div class="row">
                     <div class="col-md-4">
-                        <img ng-src="~/Scripts/css/images/{{writer.imageName}}" height="400" width="300" />
+                        <img class="" ng-src="~/Scripts/css/images/{{writer.imageName}}" height="400" width="300" />
                     </div>
                     <div class="col-md-4">
                         <label style="color:white; font-size:120%">{{writer.fullName}}</label>
@@ -67,6 +72,14 @@
 </div>
 
 <style>
+    .detailsButton {
+        margin-top: 10px;
+        bottom: 5px;
+        display: block;
+        width: 300px;
+    }
+
+
     h1 {
         text-align: center;
     }

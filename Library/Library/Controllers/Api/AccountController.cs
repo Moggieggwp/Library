@@ -25,18 +25,9 @@ namespace Library.Controllers.Api
 
         // POST api/Account/Register
         [AllowAnonymous]
-        [HttpGet]
-        public async Task<IHttpActionResult> SignUp()
+        [HttpPost]
+        public async Task<IHttpActionResult> Register(RegisterViewModel model)
         {
-            var model = new RegisterViewModel
-            {
-                UserEmail = "test@test.com",
-                UserName = "test",
-                UserSurname = "test",
-                UserPassword = "Password",
-                UserPhone = "123456789"
-            };
-
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -62,7 +53,7 @@ namespace Library.Controllers.Api
 
             this.authenticationManager.SignIn(new AuthenticationProperties { IsPersistent = true }, claim);
 
-            var a = IsAuthenticated();
+           // var a = IsAuthenticated();
             return Ok();
         }
 

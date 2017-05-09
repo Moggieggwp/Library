@@ -19,9 +19,32 @@
             });
         };
 
+        $scope.register = function (registerViewModel, userPasswordConfirm) {
+            if (registerViewModel.userPassword === userPasswordConfirm) {
+                $scope.registerPromise = createRegisterPromise(registerViewModel);
+                $scope.registerPromise.then(function () {
+                    window.location.replace("http://localhost:51620");
+                    alertService.showSuccess("Successfully");
+                });
+            }
+        };
+
         var createLoginPromise = function (loginViewModel) {
             return $q(function (resolve, reject) {
                 accountService.login(loginViewModel)
+                    .then(function (data) {
+                        resolve(data);
+                    }, function (response) {
+                        console.error("Login error");
+                        console.error(response);
+                        reject();
+                    });
+            });
+        };
+
+        var createRegisterPromise = function (registerViewModel) {
+            return $q(function (resolve, reject) {
+                accountService.register(registerViewModel)
                     .then(function (data) {
                         resolve(data);
                     }, function (response) {

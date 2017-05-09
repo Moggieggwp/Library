@@ -8,6 +8,7 @@ using Library.Data.Repositories.Book.Interfaces;
 using System.Linq;
 using Library.Data.Entities;
 using Library.Data.DTOs;
+using System.Collections.Generic;
 
 namespace Library.Services
 {
@@ -41,6 +42,17 @@ namespace Library.Services
                 Books = books.Select(CreateBookDTO).ToList(),
                 Publishers = publishers.Select(CreatePublisherDTO).ToList(),
                 Writers = writers.Select(CreateWriterDTO).ToList()
+            };
+        }
+
+        public async Task<BookInfoViewModel> GetDetailsInfo(int bookId)
+        {
+            var book = await bookRepository.GetBookById(bookId);
+            return  new BookInfoViewModel
+            {
+                Book = CreateBookDTO(book),
+                Publisher = CreatePublisherDTO(book.Publisher),
+                Writers = book.Writers.Select(x => x.Writer).Select(CreateWriterDTO).ToList()
             };
         }
 

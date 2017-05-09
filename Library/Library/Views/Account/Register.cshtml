@@ -1,4 +1,4 @@
-﻿<div>
+﻿<div ng-controller="accountController" cg-busy="[registerPromise]">
     <!-- Component title -->
     <div class="text-center sign-up-title">
         <h2 style="color:white">Sign Up!</h2>
@@ -13,14 +13,14 @@
                 <label style="color:white" for="userName">Name *</label>
                 <div class="inner-addon left-addon">
                     <i class="glyphicon glyphicon-user"></i>
-                    <input id="userName" class="form-control" type="text" />
+                    <input id="userName" class="form-control" type="text" ng-model="registerViewModel.userName" />
                 </div>
             </div>
             <div class="form-group col-md-6">
                 <label style="color:white" for="userSurname">Surname *</label>
                 <div class="inner-addon left-addon">
                     <i class="glyphicon glyphicon-user"></i>
-                    <input id="userSurname" class="form-control" type="text" />
+                    <input id="userSurname" class="form-control" type="text" ng-model="registerViewModel.userSurname" />
                 </div>
             </div>
         </div>
@@ -31,14 +31,14 @@
                 <label style="color:white" for="userPhone">Phone *</label>
                 <div class="inner-addon left-addon">
                     <i class="glyphicon glyphicon-earphone"></i>
-                    <input id="userPhone" class="form-control" type="text" placeholder="e.g. 1-202-555-0151" />
+                    <input id="userPhone" class="form-control" type="text" placeholder="e.g. 1-202-555-0151" ng-model="registerViewModel.userPhone" />
                 </div>
             </div>
             <div class="form-group">
                 <label style="color:white" for="userEmail">E-mail *</label>
                 <div class="inner-addon left-addon">
                     <i class="glyphicon glyphicon-envelope"></i>
-                    <input id="userEmail" class="form-control" type="email" />
+                    <input id="userEmail" class="form-control" type="email" ng-model="registerViewModel.userEmail" />
                 </div>
             </div>
         </div>
@@ -49,21 +49,21 @@
                 <label style="color:white" for="userPassword">Password *</label>
                 <div class="inner-addon left-addon">
                     <i class="glyphicon glyphicon-lock"></i>
-                    <input id="userPassword" class="form-control" type="password" />
+                    <input id="userPassword" class="form-control" type="password" ng-model="registerViewModel.userPassword" />
                 </div>
             </div>
             <div class="form-group">
                 <label style="color:white" for="userPasswordConfirm">Password (confirm) *</label>
                 <div class="inner-addon left-addon">
                     <i class="glyphicon glyphicon-lock"></i>
-                    <input id="userPasswordConfirm" class="form-control" type="password" />
+                    <input id="userPasswordConfirm" class="form-control" type="password" ng-model="userPasswordConfirm" />
                 </div>
             </div>
         </div>
 
         <!-- Confirmation -->
         <div class="text-center">
-            <button class="btn btn-success btn-block">Sign Up</button>
+            <button class="btn btn-success btn-block" ng-click="register(registerViewModel, userPasswordConfirm)">Sign Up</button>
         </div>
 
         <div class="help-block">

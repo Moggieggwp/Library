@@ -13,8 +13,14 @@
         $scope.books = null;
         $scope.publishers = null;
         $scope.writers = null;
-        $scope.imageName = "test.jpg";
 
+        $scope.getBookDetails = function (book) {
+            $scope.getBookDetailsPromise = createGetBookDetailsPromise(book.bookId);
+            $scope.getBookDetailsPromise.then(function (detailedBook) {
+                window.localStorage.setItem("detailedBook", JSON.stringify(detailedBook.data));
+                window.location.href = 'SearchResult/BookInfo';
+            })
+        };
 
         $scope.search = function (searchText) {
             $scope.getSearchItems(searchText);
@@ -38,7 +44,20 @@
                     .then(function (orders) {
                         resolve(orders);
                     }, function (response) {
-                        console.error("Adding car error!");
+                        console.error("!");
+                        console.error(response);
+                        reject();
+                    });
+            });
+        };
+
+        var createGetBookDetailsPromise = function (bookId) {
+            return $q(function (resolve, reject) {
+                searchService.getDetailInfo(bookId)
+                    .then(function (orders) {
+                        resolve(orders);
+                    }, function (response) {
+                        console.error("!");
                         console.error(response);
                         reject();
                     });

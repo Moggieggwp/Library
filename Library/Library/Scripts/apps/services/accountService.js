@@ -19,5 +19,14 @@
                 headers: { 'Content-Type': 'application/json' }
             });
         };
+
+        this.register = function (data) {
+            return $http({
+                method: 'POST',
+                url: url + "/Register",
+                data: data,
+                headers: { 'Content-Type': 'application/json' }
+            });
+        };
     }
 })();

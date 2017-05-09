@@ -14,5 +14,10 @@ namespace Library.Controllers
 
             return View();
         }
+
+        public ActionResult BookInfo()
+        {
+            return View();
+        }
     }
 }

@@ -351,9 +351,11 @@
     <Compile Include="Infrastructure\IApplicationUserManager.cs" />
     <Compile Include="Models\Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Scripts\apps\controllers\detailsController.js" />
     <Compile Include="Services\Interfaces\ISearchService.cs" />
     <Compile Include="Services\SearchService.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\BookInfoViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="ViewModels\SearchResultViewModel.cs" />
@@ -1217,6 +1219,7 @@
     <Content Include="Views\SearchResult\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\SearchResult\BookInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Library.Data\Library.Data.csproj">
