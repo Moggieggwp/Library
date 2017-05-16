@@ -13,6 +13,7 @@ namespace Library.Data.Entities
         public bool IsOrdered { get; set; }
         public DateTime IssueYear { get; set; }
         public string ImageName { get; set; }
+        public string PathToReadOnline { get; set; }
 
         public virtual Publisher Publisher { get; set; }
         public virtual Order Order { get; set; }

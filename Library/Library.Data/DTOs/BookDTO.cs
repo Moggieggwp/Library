@@ -11,5 +11,6 @@ namespace Library.Data.DTOs
         public int Pages { get; set; }
         public DateTime IssueYear { get; set; }
         public string ImageName { get; set; }
+        public string PathToReadOnline { get; set; }
     }
 }

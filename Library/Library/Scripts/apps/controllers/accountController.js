@@ -35,6 +35,7 @@
                     .then(function (data) {
                         resolve(data);
                     }, function (response) {
+                        alertService.showError("This user is not exist");
                         console.error("Login error");
                         console.error(response);
                         reject();
@@ -48,6 +49,7 @@
                     .then(function (data) {
                         resolve(data);
                     }, function (response) {
+                        alertService.showError("This user is not exist");
                         console.error("Login error");
                         console.error(response);
                         reject();

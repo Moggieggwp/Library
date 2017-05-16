@@ -40,7 +40,7 @@
         </div>
         <div class="well panel-transparent" ng-if="writers.length!=0" style="margin-top:50px">
             <h1>
-                <span>writers</span>
+                <span>Writers</span>
             </h1>
             <div class="well searchContent" ng-repeat="writer in writers" style="">
                 <div class="row">
@@ -49,13 +49,15 @@
                     </div>
                     <div class="col-md-4">
                         <label style="color:white; font-size:120%">{{writer.fullName}}</label>
+                        <br />
+                        <label style="color:white; font-size:120%">Birthdate: {{writer.birthDate}}</label>
                     </div>
                 </div>
             </div>
         </div>
         <div class="well panel-transparent" ng-if="publishers.length!=0" style="margin-top:50px">
             <h1>
-                <span>publishers</span>
+                <span>Publishers</span>
             </h1>
             <div class="well searchContent" ng-repeat="publisher in publishers" style="">
                 <div class="row">
@@ -64,6 +66,8 @@
                     </div>
                     <div class="col-md-4">
                         <label style="color:white; font-size:120%">{{publisher.title}}</label>
+                        <br />
+                        <label style="color:white; font-size:120%">City: {{detailedBook.publisher.city}}</label>
                     </div>
                 </div>
             </div>

@@ -1,8 +1,101 @@
 ﻿<div ng-controller="detailsController" ng-init="getDetailedInfo()">
     <toaster-container></toaster-container>
     <div class="container">
-        <div class="row" style="margin-top:180px">
-            <label style="color:white; font-size:120%">{{detailedBook.book.title}}</label>
+        <div class="well panel-transparent">
+            <h1>
+                <span>Book</span>
+            </h1>
+            <div class="well searchContent ">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img ng-src="~/Scripts/css/images/{{detailedBook.book.imageName}}" height="400" width="300" />
+                    </div>
+                    <div class="col-md-5">
+                        <div class="imageDetails">
+                            <label class="one" style="color:white; font-size:150%">{{detailedBook.book.title}}</label>
+                            <hr />
+                            <label class="two" style="color:white; font-size:120%">{{detailedBook.book.description}}</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="one" style="color:white; font-size:150%">Fare: {{detailedBook.book.fare}}$</label>
+                        <label class="one" style="color:white; font-size:150%">Date off: {{detailedBook.book.issueYear}}</label>
+                        <label class="one" style="color:white; font-size:150%">Pages: {{detailedBook.book.pages}}</label>
+                        <br />
+                        <button class="btn btn-primary" style="width:100%; margin-bottom:10px" ng-click="readOnline()">Read Online</button>
+                        <button class="btn btn-success" style="width:100%" ng-click="buy()">Buy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="well panel-transparent" style="margin-top:50px">
+            <h1>
+                <span>Writers</span>
+            </h1>
+            <div class="well searchContent" ng-repeat="writer in detailedBook.writers" style="">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img class="" ng-src="~/Scripts/css/images/{{writer.imageName}}" height="400" width="300" />
+                    </div>
+                    <div class="col-md-4">
+                        <label style="color:white; font-size:120%">{{writer.fullName}}</label>
+                        <br />
+                        <label style="color:white; font-size:120%">Birthdate: {{writer.birthDate}}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="well panel-transparent" ng-if="publishers.length!=0" style="margin-top:50px">
+            <h1>
+                <span>Publisher</span>
+            </h1>
+            <div class="well searchContent">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img ng-src="~/Scripts/css/images/{{detailedBook.publisher.imageName}}" height="400" width="300" />
+                    </div>
+                    <div class="col-md-4">
+                        <label style="color:white; font-size:120%">{{detailedBook.publisher.title}}</label>
+                        <br />
+                        <label style="color:white; font-size:120%">City: {{detailedBook.publisher.city}}</label>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+<style>
+    .detailsButton {
+        margin-top: 10px;
+        bottom: 5px;
+        display: block;
+        width: 300px;
+    }
+
+
+    h1 {
+        text-align: center;
+    }
+
+        h1 span {
+            color: white;
+            font-family: "Courier", "monospace";
+            font-size: 120%;
+        }
+
+    input[placeholder] {
+        color: white;
+        font-family: "Courier", "monospace";
+        font-size: 120%;
+    }
+
+    .searchContent {
+        margin-top: 10px;
+        background-color: rgba(0, 0, 0, 0.25);
+    }
+
+    .searchButton {
+        background: rgba(0, 0, 0, 0);
+        box-shadow: 0px 0px 20px 3px #4195fc;
+    }
+</style>

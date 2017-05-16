@@ -34,7 +34,8 @@
                 $scope.writers = items.data.writers;
                 $scope.isHomePage = false;
                 $scope.isSearchResultPage = true;
-                alertService.showSuccess("Items found");
+                if ($scope.books !== null || $scope.publishers || $scope.writers)
+                    alertService.showSuccess("Items found");
             });
         };
 

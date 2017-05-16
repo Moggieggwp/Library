@@ -1,5 +1,4 @@
 ﻿using Library.Services.Interfaces;
-using System;
 using Library.ViewModels;
 using System.Threading.Tasks;
 using Library.Data.Repositories.Writer.Interfaces;
@@ -8,7 +7,6 @@ using Library.Data.Repositories.Book.Interfaces;
 using System.Linq;
 using Library.Data.Entities;
 using Library.Data.DTOs;
-using System.Collections.Generic;
 
 namespace Library.Services
 {
@@ -66,7 +64,8 @@ namespace Library.Services
                 Fare = book.Fare,
                 IssueYear = book.IssueYear.Date,
                 Pages = book.Pages,
-                ImageName = book.ImageName
+                ImageName = book.ImageName,
+                PathToReadOnline = book.PathToReadOnline
             };
         }
 

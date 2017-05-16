@@ -28,5 +28,9 @@
                 headers: { 'Content-Type': 'application/json' }
             });
         };
+
+        this.isLogged = function () {
+            return $http.get(url + "/IsAuthenticated");
+        }
     }
 })();
