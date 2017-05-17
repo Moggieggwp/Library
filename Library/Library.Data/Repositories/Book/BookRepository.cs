@@ -26,15 +26,16 @@ namespace Library.Data.Repositories.Book
                 || (x.Title + " " + x.Description).Contains(partialName)
                 || (x.Title + " " + x.Description).Contains(partialName.ToUpper())
                 || (x.Title + " " + x.Description).Contains(partialName.ToLower()))
+                .Where(x => x.Order == null)
                 .ToListAsync();
         }
 
         public async Task<Entities.Book> GetBookById(int bookId)
         {
             return await bookDataSet
-                .Include(x=> x.Publisher)
-                .Include(x=> x.Writers.Select(z=> z.Writer))
-                .FirstOrDefaultAsync(x=> x.Id == bookId);
+                .Include(x => x.Publisher)
+                .Include(x => x.Writers.Select(z => z.Writer))
+                .FirstOrDefaultAsync(x => x.Id == bookId && x.Order == null);
         }
     }
 }

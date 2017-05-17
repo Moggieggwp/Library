@@ -17,6 +17,8 @@ namespace Library.Controllers
 
         public ActionResult BookInfo()
         {
+            ViewBag.Title = "Details";
+
             return View();
         }
     }

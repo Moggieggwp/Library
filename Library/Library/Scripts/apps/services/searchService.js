@@ -17,5 +17,14 @@
         this.getDetailInfo = function (bookId) {
             return $http.get(url + "/GetDetailsInfo?bookId=" + bookId);
         };
+
+        this.orderBook = function (data) {
+            return $http({
+                method: 'POST',
+                url: url + "/OrderBook",
+                data: data,
+                headers: { 'Content-Type': 'application/json' }
+            });
+        };
     } 
 })();

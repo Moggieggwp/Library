@@ -5,7 +5,7 @@
             <h1>
                 <span>Book</span>
             </h1>
-            <div class="well searchContent ">
+            <div class="well searchContent " cg-busy="[orderBookPromise]">
                 <div class="row">
                     <div class="col-md-4">
                         <img ng-src="~/Scripts/css/images/{{detailedBook.book.imageName}}" height="400" width="300" />
@@ -23,7 +23,7 @@
                         <label class="one" style="color:white; font-size:150%">Pages: {{detailedBook.book.pages}}</label>
                         <br />
                         <button class="btn btn-primary" style="width:100%; margin-bottom:10px" ng-click="readOnline()">Read Online</button>
-                        <button class="btn btn-success" style="width:100%" ng-click="buy()">Buy</button>
+                        <button class="btn btn-success" style="width:100%" data-target="#confirm" data-toggle="modal">Buy</button>
                     </div>
                 </div>
             </div>
@@ -59,6 +59,22 @@
                         <br />
                         <label style="color:white; font-size:120%">City: {{detailedBook.publisher.city}}</label>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="confirm" class="modal fade in" aria-labelledby="modallabel" aria-hidden="true" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove"></span></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you confirm your order?</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                    <button class="btn btn-primary" ng-click="orderBook()" data-dismiss="modal">Buy</button>
                 </div>
             </div>
         </div>

@@ -3,7 +3,7 @@ using Newtonsoft.Json.Serialization;
 using Owin;
 using System.Web.Http;
 
-[assembly: OwinStartupAttribute(typeof(Library.Startup))]
+[assembly: OwinStartup(typeof(Library.Startup))]
 namespace Library
 {
     public partial class Startup

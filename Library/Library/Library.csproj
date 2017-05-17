@@ -342,6 +342,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Api\AccountController.cs" />
     <Compile Include="Controllers\Api\SearchController.cs" />
+    <Compile Include="Controllers\CabinetController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SearchResultController.cs" />
     <Compile Include="Global.asax.cs">
@@ -352,11 +353,14 @@
     <Compile Include="Models\Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="Scripts\apps\controllers\detailsController.js" />
+    <Compile Include="Services\Interfaces\IManageOrdersService.cs" />
     <Compile Include="Services\Interfaces\ISearchService.cs" />
+    <Compile Include="Services\ManageOrdersService.cs" />
     <Compile Include="Services\SearchService.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\BookInfoViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\OrderViewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="ViewModels\SearchResultViewModel.cs" />
   </ItemGroup>
@@ -1223,6 +1227,7 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\SearchResult\BookInfo.cshtml" />
+    <Content Include="Views\Cabinet\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Library.Data\Library.Data.csproj">

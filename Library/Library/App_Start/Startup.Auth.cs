@@ -3,12 +3,14 @@ using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Owin;
 using Microsoft.Owin.Security.Cookies;
+using Microsoft.Owin.Security.DataProtection;
 
 namespace Library
 {
     public partial class Startup
     {
         public static string PublicClientId { get; private set; }
+        public static IDataProtectionProvider DataProtectionProvider { get; private set; }
         // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301864
         public void ConfigureAuth(IAppBuilder app)
         {

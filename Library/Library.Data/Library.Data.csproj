@@ -60,6 +60,7 @@
     <Compile Include="Context\IDataContext.cs" />
     <Compile Include="Context\LibraryDatabaseContext.cs" />
     <Compile Include="DTOs\BookDTO.cs" />
+    <Compile Include="DTOs\OrderDTO.cs" />
     <Compile Include="DTOs\PublisherDTO.cs" />
     <Compile Include="DTOs\WriterDTO.cs" />
     <Compile Include="Entities\ApplicationUser.cs" />
@@ -108,12 +109,18 @@
     <Compile Include="Migrations\201705151637181_addedPathToReadOnline.Designer.cs">
       <DependentUpon>201705151637181_addedPathToReadOnline.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705171542421_changesInOrderReturn.cs" />
+    <Compile Include="Migrations\201705171542421_changesInOrderReturn.Designer.cs">
+      <DependentUpon>201705171542421_changesInOrderReturn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Base\Interfaces\IRepository.cs" />
     <Compile Include="Repositories\Base\Repository.cs" />
     <Compile Include="Repositories\Book\BookRepository.cs" />
     <Compile Include="Repositories\Book\Interfaces\IBookRepository.cs" />
+    <Compile Include="Repositories\Order\Interface\IOrderRepository.cs" />
+    <Compile Include="Repositories\Order\OrderRepository.cs" />
     <Compile Include="Repositories\Publisher\Interfaces\IPublisherRepository.cs" />
     <Compile Include="Repositories\Publisher\PublisherRepository.cs" />
     <Compile Include="Repositories\Writer\Interfaces\IWriterRepository.cs" />
@@ -147,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705151637181_addedPathToReadOnline.resx">
       <DependentUpon>201705151637181_addedPathToReadOnline.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705171542421_changesInOrderReturn.resx">
+      <DependentUpon>201705171542421_changesInOrderReturn.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

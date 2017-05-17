@@ -29,5 +29,7 @@ namespace EasyFlights.Web.Infrastructure
         Task<ApplicationUser> FindByEmailAsync(string email);
 
         Task<IdentityResult> UpdateAsync(ApplicationUser user);
+
+        Task<IdentityResult> DeleteAsync(ApplicationUser user);
     }
 }
