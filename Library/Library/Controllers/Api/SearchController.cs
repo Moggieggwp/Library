@@ -43,7 +43,7 @@ namespace Library.Controllers.Api
         }
 
         [HttpGet]
-        public async Task<BookInfoViewModel> GetOrdersForUser()
+        public async Task<List<OrderViewModel>> GetOrdersForUser()
         {
             return await manageOrderService.GetOrdersForUser(User.Identity.Name);
         }
