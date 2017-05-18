@@ -352,6 +352,8 @@
     <Compile Include="Infrastructure\IApplicationUserManager.cs" />
     <Compile Include="Models\Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ChangePasswordViewModel.cs" />
+    <Compile Include="ViewModels\UserInfoViewModel.cs" />
     <Content Include="Scripts\apps\controllers\detailsController.js" />
     <Compile Include="Services\Interfaces\IManageOrdersService.cs" />
     <Compile Include="Services\Interfaces\ISearchService.cs" />
@@ -380,7 +382,9 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Scripts\apps\controllers\accountController.js" />
+    <Content Include="Scripts\apps\controllers\managesController.js" />
     <Content Include="Scripts\apps\services\accountService.js" />
+    <Content Include="Scripts\apps\services\managesService.js" />
     <Content Include="Scripts\css\images\bloomsburyPublishing.jpg" />
     <Content Include="Scripts\css\images\elJames.jpg" />
     <Content Include="Scripts\css\images\fiftyShades.jpg" />

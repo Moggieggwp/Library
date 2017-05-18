@@ -10,6 +10,7 @@
     function searchController($q, $scope, $http, searchService, alertService) {
         $scope.isHomePage = true;
         $scope.isSearchResultPage = false;
+        $scope.noItemsFound = false;
         $scope.books = null;
         $scope.publishers = null;
         $scope.writers = null;
@@ -34,8 +35,16 @@
                 $scope.writers = items.data.writers;
                 $scope.isHomePage = false;
                 $scope.isSearchResultPage = true;
-                if ($scope.books !== null || $scope.publishers || $scope.writers)
-                    alertService.showSuccess("Items found");
+                if ($scope.books.length === 0 && $scope.publishers.length === 0 && $scope.writers.length === 0) {
+                    $scope.noItemsFound = true;
+                    $scope.isHomePage = false;
+                    $scope.isSearchResultPage = false;
+                    alertService.showWarning("No Items was found");
+                }
+                else {
+                    alertService.showSuccess("Items was found");
+                }
+
             });
         };
 

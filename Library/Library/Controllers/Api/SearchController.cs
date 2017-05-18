@@ -1,8 +1,10 @@
 ﻿using EasyFlights.Web.Infrastructure;
+using EasyFlights.Web.ViewModels.AccountViewModels;
 using Library.Data.Entities;
 using Library.Data.Repositories.Book.Interfaces;
 using Library.Services.Interfaces;
 using Library.ViewModels;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
@@ -74,6 +76,71 @@ namespace Library.Controllers.Api
             {
                 return false;
             }
+        }
+
+        [HttpGet]
+        public async Task<UserInfoViewModel> GetUserInfo()
+        {
+            var user = await applicationUserManager.FindByEmailAsync(User.Identity.Name);
+
+            return new UserInfoViewModel
+            {
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                PhoneNumber = user.PhoneNumber,
+                UserEmail = user.Email
+            };
+        }
+
+        [HttpGet]
+        public string GetUserEmail()
+        {
+            return User.Identity.Name;
+        }
+
+        [HttpPost]
+        public async Task<bool> ChangePassword([FromBody] ChangePasswordViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return false;
+            }
+
+            if (model.NewPassword != model.NewPasswordConfirm)
+            {
+                return false;
+            }
+
+            ApplicationUser user = await applicationUserManager.FindByIdAsync(User.Identity.GetUserId());
+            IdentityResult result = await applicationUserManager.ChangePasswordAsync(user.Id, model.OldPassword, model.NewPassword);
+
+            if (!result.Succeeded)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        [HttpPost]
+        public async Task<bool> ChangeAccountData([FromBody] UserInfoViewModel userInfo)
+        {
+            if (!ModelState.IsValid)
+            {
+                return false;
+            }
+
+            var user = await applicationUserManager.FindByEmailAsync(userInfo.UserEmail);
+
+            user.FirstName = userInfo.FirstName;
+            user.LastName = userInfo.LastName;
+            user.PhoneNumber = userInfo.PhoneNumber;
+
+            var result = await applicationUserManager.UpdateAsync(user);
+            if (result.Succeeded)
+                return true;
+
+            return false;
         }
     }
 }
