@@ -26,8 +26,10 @@
             var isLogged = false;
             accountService.isLogged().then(function (result) {
                 isLogged = result.data;
-                if (isLogged)
+                if (isLogged) {
                     doOrderBook();
+                    window.location.replace("http://localhost:51620/Cabinet");
+                }
                 else {
                     window.localStorage.setItem("BookForOrder", JSON.stringify($scope.detailedBook.book.bookId));
                     window.location.href = "http://localhost:51620/Account/Login";

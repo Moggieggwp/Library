@@ -51,6 +51,20 @@ namespace Library.Controllers.Api
         }
 
         [HttpPost]
+        public async Task<bool> DeleteOrder([FromBody] OrderViewModel order)
+        {
+            try
+            {
+                await manageOrderService.DeleteOrder(order);
+                return true;
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
+        }
+
+        [HttpPost]
         public async Task<bool> OrderBook([FromBody]int bookId)
         {
             try

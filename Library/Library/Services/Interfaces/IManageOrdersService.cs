@@ -12,5 +12,6 @@ namespace Library.Services.Interfaces
     {
         void BookOrder(Order order);
         Task<List<OrderViewModel>> GetOrdersForUser(string userEmail);
+        Task DeleteOrder(OrderViewModel order);
     }
 }

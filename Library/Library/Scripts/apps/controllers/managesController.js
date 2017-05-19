@@ -9,8 +9,31 @@
 
     function managesController($q, $scope, $http, managesService, accountService, alertService) {
 
-        $scope.getOrdersInfo = function () {
+        $scope.areOrdersEmpty = true;
+        $scope.orders = null;
+        $scope.savedOrder = null;
 
+        $scope.saveOrder = function (order) {
+            $scope.savedOrder = order;
+        }
+
+        $scope.getOrdersInfo = function () {
+            $scope.getOrdersInfoPromise = createGetOrdersInfoPromise();
+            $scope.getOrdersInfoPromise.then(function (orders) {
+                if (orders.data.length !== 0) {
+                    $scope.areOrdersEmpty = false;
+                    $scope.orders = orders.data;
+                    for (var i = 0; i < $scope.orders.length; i++) {
+                        $scope.orders[i].orderDate = $scope.orders[i].orderDate.replace("T", " ");
+                        $scope.orders[i].orderDate = $scope.orders[i].orderDate.substring(0, 19);
+                        $scope.orders[i].returnDate = $scope.orders[i].returnDate.replace("T", " ");
+                        $scope.orders[i].returnDate = $scope.orders[i].returnDate.substring(0, 19);
+                    }
+                }
+                else {
+                    $scope.areOrdersEmpty = true;
+                }
+            });
         };
 
         $scope.getUserInfo = function () {
@@ -47,6 +70,31 @@
                     alertService.showError("Input all fields");
                 }
             })
+        };
+
+        $scope.deleteOrder = function () {
+            $scope.deleteOrderPromise = createDeleteOrderPromise($scope.savedOrder);
+            $scope.deleteOrderPromise.then(function (result) {
+                if (result.data === true) {
+                    $scope.getOrdersInfo();
+                    alertService.showSuccess("Order successfully deleted");
+                }
+                else
+                    alertService.showError("Order not deleted")
+
+            });
+        }
+
+        var createDeleteOrderPromise = function (order) {
+            return $q(function (resolve, reject) {
+                managesService.deleteOrder(order)
+                    .then(function (data) {
+                        resolve(data);
+                    }, function (response) {
+                        console.error(response);
+                        reject();
+                    });
+            });
         };
 
         var createChangeUserInfoPromise = function (userInfo) {
@@ -88,6 +136,18 @@
         var createchangePasswordPromise = function (changePasswordModel) {
             return $q(function (resolve, reject) {
                 managesService.changePassword(changePasswordModel)
+                    .then(function (data) {
+                        resolve(data);
+                    }, function (response) {
+                        console.error(response);
+                        reject();
+                    });
+            });
+        };
+
+        var createGetOrdersInfoPromise = function () {
+            return $q(function (resolve, reject) {
+                managesService.getOrdersInfo()
                     .then(function (data) {
                         resolve(data);
                     }, function (response) {

@@ -10,5 +10,7 @@ namespace Library.Data.Repositories.Order.Interface
     {
         void BookOrder(Entities.Order order);
         Task<List<Entities.Order>> GetOrdersForUser(string userEmail);
+        Task<Entities.Order> GetOrderById(long orderId);
+        void DeleteOrder(Entities.Order order);
     }
 }

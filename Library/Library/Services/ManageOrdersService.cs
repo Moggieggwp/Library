@@ -31,15 +31,25 @@ namespace Library.Services
 
             foreach (var order in orders)
             {
+                if (order.Books.Count == 0)
+                    continue;
+
                 orderViewModel.Add(new OrderViewModel
                 {
                     Book = CreateBookDTO(order.Books.FirstOrDefault()),
                     OrderDate = order.OrderDate,
-                    ReturnDate = order.ReturnDate
+                    ReturnDate = order.ReturnDate,
+                    OrderId = order.Id
                 });
             }
 
             return orderViewModel;
+        }
+
+        public async Task DeleteOrder(OrderViewModel orderViewModel)
+        {
+            var order = await orderRepository.GetOrderById(orderViewModel.OrderId);
+            orderRepository.DeleteOrder(order);
         }
 
         private BookDTO CreateBookDTO(Book book)

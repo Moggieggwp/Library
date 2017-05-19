@@ -6,8 +6,94 @@
         <li><a href="#account" data-toggle="tab" ng-click="getAccountInfo()">Account</a></li>
     </ul>
     <div class="tab-content">
-        <div class="tab-pane active" id="orders">
-        </div>
+        <div class="tab-pane active" id="orders" cg-busy="[getOrdersInfoPromise]">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2 ng-if="!areOrdersEmpty" style="color:white">Your orders</h2>
+                    <h2 ng-if="areOrdersEmpty" style="color:white">You have no orders</h2>
+                    <hr />
+                </div>
+            </div>
+            <div ng-repeat="order in orders" ng-if="!areOrdersEmpty">
+                <div class="panel panel-default" cg-busy="[deleteOrderPromise]">
+                    <div class="panel-heading">
+                        <span><span data-bind="text: order.departureCity"></span> - <span data-bind="text: order.arrivalCity"></span></span>
+                        <span class="pull-right">Order created: {{order.orderDate}}</span>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img ng-src="~/Scripts/css/images/{{order.book.imageName}}" height="400" width="300" />
+                            </div>
+                            <div class="col-md-6">
+                                <div class="imageDetails">
+                                    <label class="one" style="font-size:150%">{{order.book.title}}</label>
+                                    <hr />
+                                    <label class="two" style="font-size:120%">{{order.book.description}}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <a class="btn btn-primary btn-md" style="width: 300px;"  data-target="#details" data-toggle="modal" ng-click="saveOrder(order)">
+                            <i class="glyphicon glyphicon-info-sign" aria-hidden="true"></i>
+                            Details
+                        </a>
+                        <a class="btn btn-danger pull-right" ng-click="saveOrder(order)" data-target="#confirm" role="button" data-toggle="modal">
+                            <i class="glyphicon glyphicon-trash" aria-hidden="true"></i>
+                            Delete order
+                        </a>
+                    </div>
+                </div>
+                <div id="confirm" class="modal fade in" aria-labelledby="modallabel" aria-hidden="true" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove"></span></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Are you confirm deleting order?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                                <button class="btn btn-danger" ng-click="deleteOrder()" data-dismiss="modal"><i class="glyphicon glyphicon-trash" aria-hidden="true"></i>Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="details" class="modal fade in" aria-labelledby="modallabel" aria-hidden="true" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove"></span></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <div class="imageDetails">
+                                            <label class="one" style="font-size:150%">{{savedOrder.book.title}}</label>
+                                            <hr />
+                                            <label class="two" style="font-size:120%">{{savedOrder.book.description}}</label>
+                                            <hr />
+                                            <label class="two" style="font-size:120%">Order date: {{savedOrder.orderDate}}</label>
+                                            <label class="two" style="font-size:120%">Return date: {{savedOrder.returnDate}}</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="one" style="font-size:150%">Fare: {{savedOrder.book.fare}}$</label>
+                                        <label class="one" style="font-size:150%">Pages: {{savedOrder.book.pages}}</label>
+                                        <br />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
         <div class="tab-pane" id="profile">
             <div class="container" cg-busy="[getUserInfoPromise,changeUserInfoPromise]">
                 <h3 style="color:white">Edit your personal information</h3>
@@ -26,7 +112,7 @@
                 <div class="row form-group">
                     <label class="col-md-3 control-label" style="color:white">Contact Phone:</label>
                     <div class="col-md-3">
-                        <input class="form-control" type="text" placeholder="e.g. 1-202-505-5050"  ng-model="userInfo.phoneNumber" />
+                        <input class="form-control" type="text" placeholder="e.g. 1-202-505-5050" ng-model="userInfo.phoneNumber" />
                     </div>
                 </div>
                 <div class="row form-group">

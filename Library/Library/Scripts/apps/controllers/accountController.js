@@ -13,6 +13,7 @@
             $scope.loginPromise = createLoginPromise(loginViewModel);
             $scope.loginPromise.then(function () {
                 var data = window.localStorage.getItem("BookForOrder");
+                window.localStorage.removeItem("BookForOrder");
                 alertService.showSuccess("Successfully logged");
                 if (data === null) {
                     window.location.replace("http://localhost:51620");
@@ -20,7 +21,7 @@
                 else {
                     var bookId = JSON.parse(data);
                     doOrderBook(bookId);
-                    window.location.replace("http://localhost:51620");
+                    window.location.replace("http://localhost:51620/Cabinet");
                 }
             });
         };
@@ -68,7 +69,7 @@
             $scope.orderBookPromise.then(function (result) {
                 if (result.data) {
                     alertService.showSuccess("Book Successfully ordered.");
-                    window.localStorage.removeItem("BookForOrder");
+                    
                 }
                 else {
                     alertService.showError("Something was wrong(")
