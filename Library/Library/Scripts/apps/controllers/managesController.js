@@ -51,26 +51,50 @@
         };
 
         $scope.changePassword = function (changePasswordModel) {
-            $scope.changePasswordPromise = createchangePasswordPromise(changePasswordModel);
-            $scope.changePasswordPromise.then(function (result) {
-                if (result.data)
-                    alertService.showSuccess("Password succesfullt changed");
+            if (changePasswordModel.newPassword.length < 5)
+                alertService.showError("Password must be more than 5 character");
+            else if (!hasUpperCase(changePasswordModel.newPassword))
+                alertService.showError("Password must contain a capital letters");
+            else if (!hasNumber(changePasswordModel.newPassword))
+                alertService.showError("Password must contain a numbers. ");
+            else
+                if (changePasswordModel.newPassword !== changePasswordModel.newPasswordConfirm)
+                    alertService.showError("Please confirm your password");
                 else {
-                    alertService.showError("Confirm your new password");
+                    $scope.changePasswordPromise = createchangePasswordPromise(changePasswordModel);
+                    $scope.changePasswordPromise.then(function (result) {
+                        if (result.data)
+                            alertService.showSuccess("Password succesfullt changed");
+                        else {
+                            alertService.showError("Confirm your new password");
+                        }
+                    });
                 }
-            })
         };
 
         $scope.changeUserInfo = function (userInfo) {
-            $scope.changeUserInfoPromise = createChangeUserInfoPromise(userInfo);
-            $scope.changeUserInfoPromise.then(function (result) {
-                if (result.data)
-                    alertService.showSuccess("Information succesfully changed");
-                else {
-                    alertService.showError("Input all fields");
-                }
-            })
+            if (userInfo.phoneNumber.length < 8 || isNaN(userInfo.phoneNumber))
+                alertService.showError("Invalid phone number");
+            else {
+                $scope.changeUserInfoPromise = createChangeUserInfoPromise(userInfo);
+                $scope.changeUserInfoPromise.then(function (result) {
+                    if (result.data)
+                        alertService.showSuccess("Information succesfully changed");
+                    else {
+                        alertService.showError("Input all fields");
+                    }
+                });
+            }
         };
+
+        function hasUpperCase(str) {
+            return (/[A-Z]+/.test(str));
+        }
+
+        function hasNumber(myString) {
+            return /\d/.test(myString);
+        }
+
 
         $scope.deleteOrder = function () {
             $scope.deleteOrderPromise = createDeleteOrderPromise($scope.savedOrder);

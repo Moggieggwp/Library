@@ -10,31 +10,65 @@
     function accountController($q, $scope, $http, alertService, accountService, searchService) {
 
         $scope.login = function (loginViewModel) {
-            $scope.loginPromise = createLoginPromise(loginViewModel);
-            $scope.loginPromise.then(function () {
-                var data = window.localStorage.getItem("BookForOrder");
-                window.localStorage.removeItem("BookForOrder");
-                alertService.showSuccess("Successfully logged");
-                if (data === null) {
-                    window.location.replace("http://localhost:51620");
-                }
-                else {
-                    var bookId = JSON.parse(data);
-                    doOrderBook(bookId);
-                    window.location.replace("http://localhost:51620/Cabinet");
-                }
-            });
-        };
-
-        $scope.register = function (registerViewModel, userPasswordConfirm) {
-            if (registerViewModel.userPassword === userPasswordConfirm) {
-                $scope.registerPromise = createRegisterPromise(registerViewModel);
-                $scope.registerPromise.then(function () {
-                    window.location.replace("http://localhost:51620");
-                    alertService.showSuccess("Successfully");
+            if (loginViewModel.userPassword.length < 5)
+                alertService.showError("Password must be more than 5 character");
+            else if (!hasUpperCase(loginViewModel.userPassword))
+                alertService.showError("Password must contain a capital letters");
+            else if (!hasNumber(loginViewModel.userPassword))
+                alertService.showError("Password must contain a numbers. ");
+            else {
+                $scope.loginPromise = createLoginPromise(loginViewModel);
+                $scope.loginPromise.then(function () {
+                    var data = window.localStorage.getItem("BookForOrder");
+                    window.localStorage.removeItem("BookForOrder");
+                    alertService.showSuccess("Successfully logged");
+                    if (data === null) {
+                        window.location.replace("http://localhost:51620");
+                    }
+                    else {
+                        var bookId = JSON.parse(data);
+                        doOrderBook(bookId);
+                        window.location.replace("http://localhost:51620");
+                    }
                 });
             }
         };
+
+        $scope.register = function (registerViewModel, userPasswordConfirm) {
+            if (registerViewModel.userName.length < 3)
+                alertService.showError("Name is too short");
+            else
+                if (registerViewModel.userSurname.length < 3)
+                    alertService.showError("Surname is too short");
+                else
+                    if (registerViewModel.userPhone.length < 8 || isNaN(registerViewModel.userPhone))
+                        alertService.showError("Invalid phone number");
+                    else
+                        if (registerViewModel.userPassword.length < 5)
+                            alertService.showError("Password must be more than 5 character");
+                        else if (!hasUpperCase(registerViewModel.userPassword))
+                            alertService.showError("Password must contain a capital letters");
+                        else if (!hasNumber(registerViewModel.userPassword))
+                            alertService.showError("Password must contain a numbers. ");
+                        else
+                            if (registerViewModel.userPassword !== userPasswordConfirm)
+                                alertService.showError("Please confirm your password");
+                            else {
+                                $scope.registerPromise = createRegisterPromise(registerViewModel);
+                                $scope.registerPromise.then(function () {
+                                    window.location.replace("http://localhost:51620");
+                                    alertService.showSuccess("Successfully");
+                                });
+                            }
+        };
+
+        function hasUpperCase(str) {
+            return (/[A-Z]+/.test(str));
+        }
+
+        function hasNumber(myString) {
+            return /\d/.test(myString);
+        }
 
         var createLoginPromise = function (loginViewModel) {
             return $q(function (resolve, reject) {
@@ -69,7 +103,7 @@
             $scope.orderBookPromise.then(function (result) {
                 if (result.data) {
                     alertService.showSuccess("Book Successfully ordered.");
-                    
+
                 }
                 else {
                     alertService.showError("Something was wrong(")

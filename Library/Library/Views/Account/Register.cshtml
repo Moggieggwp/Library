@@ -1,74 +1,75 @@
 ﻿<div ng-controller="accountController" cg-busy="[registerPromise]">
-    <!-- Component title -->
+    <toaster-container></toaster-container>
     <div class="text-center sign-up-title">
         <h2 style="color:white">Sign Up!</h2>
     </div>
     &nbsp;
     <!-- SignUp form -->
     <div class="well sign-up-form">
+        <form ng-submit="register(registerViewModel, userPasswordConfirm)" name="form">
+            <!-- User's full name -->
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label style="color:white" for="userName">Name *</label>
+                    <div class="inner-addon left-addon">
+                        <i class="glyphicon glyphicon-user"></i>
+                        <input id="userName" class="form-control" type="text" ng-model="registerViewModel.userName" required />
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <label style="color:white" for="userSurname">Surname *</label>
+                    <div class="inner-addon left-addon">
+                        <i class="glyphicon glyphicon-user"></i>
+                        <input id="userSurname" class="form-control" type="text" ng-model="registerViewModel.userSurname" required/>
+                    </div>
+                </div>
+            </div>
 
-        <!-- User's full name -->
-        <div class="row">
-            <div class="form-group col-md-6">
-                <label style="color:white" for="userName">Name *</label>
-                <div class="inner-addon left-addon">
-                    <i class="glyphicon glyphicon-user"></i>
-                    <input id="userName" class="form-control" type="text" ng-model="registerViewModel.userName" />
+            <!-- User's contanct info -->
+            <div>
+                <div class="form-group">
+                    <label style="color:white" for="userPhone">Phone *</label>
+                    <div class="inner-addon left-addon">
+                        <i class="glyphicon glyphicon-earphone"></i>
+                        <input id="userPhone" class="form-control" type="text" placeholder="e.g. 1-202-555-0151" ng-model="registerViewModel.userPhone" required/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label style="color:white" for="userEmail">E-mail *</label>
+                    <div class="inner-addon left-addon">
+                        <i class="glyphicon glyphicon-envelope"></i>
+                        <input id="userEmail" class="form-control" type="email" ng-model="registerViewModel.userEmail" required/>
+                    </div>
                 </div>
             </div>
-            <div class="form-group col-md-6">
-                <label style="color:white" for="userSurname">Surname *</label>
-                <div class="inner-addon left-addon">
-                    <i class="glyphicon glyphicon-user"></i>
-                    <input id="userSurname" class="form-control" type="text" ng-model="registerViewModel.userSurname" />
-                </div>
-            </div>
-        </div>
 
-        <!-- User's contanct info -->
-        <div>
-            <div class="form-group">
-                <label style="color:white" for="userPhone">Phone *</label>
-                <div class="inner-addon left-addon">
-                    <i class="glyphicon glyphicon-earphone"></i>
-                    <input id="userPhone" class="form-control" type="text" placeholder="e.g. 1-202-555-0151" ng-model="registerViewModel.userPhone" />
+            <!-- Password -->
+            <div>
+                <div class="form-group">
+                    <label style="color:white" for="userPassword">Password *</label>
+                    <div class="inner-addon left-addon">
+                        <i class="glyphicon glyphicon-lock"></i>
+                        <input id="userPassword" class="form-control" type="password" ng-model="registerViewModel.userPassword" required/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label style="color:white" for="userPasswordConfirm">Password (confirm) *</label>
+                    <div class="inner-addon left-addon">
+                        <i class="glyphicon glyphicon-lock"></i>
+                        <input id="userPasswordConfirm" class="form-control" type="password" ng-model="userPasswordConfirm" required/>
+                    </div>
                 </div>
             </div>
-            <div class="form-group">
-                <label style="color:white" for="userEmail">E-mail *</label>
-                <div class="inner-addon left-addon">
-                    <i class="glyphicon glyphicon-envelope"></i>
-                    <input id="userEmail" class="form-control" type="email" ng-model="registerViewModel.userEmail" />
-                </div>
-            </div>
-        </div>
 
-        <!-- Password -->
-        <div>
-            <div class="form-group">
-                <label style="color:white" for="userPassword">Password *</label>
-                <div class="inner-addon left-addon">
-                    <i class="glyphicon glyphicon-lock"></i>
-                    <input id="userPassword" class="form-control" type="password" ng-model="registerViewModel.userPassword" />
-                </div>
+            <!-- Confirmation -->
+            <div class="text-center">
+                <button class="btn btn-success btn-block" type="submit">Sign Up</button>
             </div>
-            <div class="form-group">
-                <label style="color:white" for="userPasswordConfirm">Password (confirm) *</label>
-                <div class="inner-addon left-addon">
-                    <i class="glyphicon glyphicon-lock"></i>
-                    <input id="userPasswordConfirm" class="form-control" type="password" ng-model="userPasswordConfirm" />
-                </div>
+
+            <div class="help-block">
+                * required fields
             </div>
-        </div>
-
-        <!-- Confirmation -->
-        <div class="text-center">
-            <button class="btn btn-success btn-block" ng-click="register(registerViewModel, userPasswordConfirm)">Sign Up</button>
-        </div>
-
-        <div class="help-block">
-            * required fields
-        </div>
+        </form>
     </div>
 </div>
 <style>
@@ -80,7 +81,7 @@
         border-color: white;
         background: rgba(0, 0, 0, 0.4);
     }
-        /* enable absolute positioning */
+    /* enable absolute positioning */
     .inner-addon {
         position: relative;
     }
