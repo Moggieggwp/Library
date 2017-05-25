@@ -28,7 +28,7 @@
                 isLogged = result.data;
                 if (isLogged) {
                     doOrderBook();
-                    window.location.replace("http://localhost:51620");
+                    //window.location.replace("http://localhost:51620");
                 }
                 else {
                     window.localStorage.setItem("BookForOrder", JSON.stringify($scope.detailedBook.book.bookId));

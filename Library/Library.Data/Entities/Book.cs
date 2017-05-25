@@ -9,6 +9,7 @@ namespace Library.Data.Entities
         public string Title { get; set; }
         public string Description { get; set; }
         public decimal Fare { get; set; }
+        public string Genre { get; set; }
         public int Pages { get; set; }
         public bool IsOrdered { get; set; }
         public DateTime IssueYear { get; set; }

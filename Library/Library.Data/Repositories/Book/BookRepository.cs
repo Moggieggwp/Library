@@ -20,12 +20,12 @@ namespace Library.Data.Repositories.Book
         public Task<List<Entities.Book>> GetBooksByPartialName(string partialName)
         {
             return bookDataSet
-                .Where(x => (x.Title + " " + x.Description).StartsWith(partialName)
-                || (x.Title + " " + x.Description).StartsWith(partialName.ToUpper())
-                || (x.Title + " " + x.Description).StartsWith(partialName.ToLower())
-                || (x.Title + " " + x.Description).Contains(partialName)
-                || (x.Title + " " + x.Description).Contains(partialName.ToUpper())
-                || (x.Title + " " + x.Description).Contains(partialName.ToLower()))
+                .Where(x => (x.Title + " " + x.Description + " " + x.Genre).StartsWith(partialName)
+                || (x.Title + " " + x.Description + " " + x.Genre).StartsWith(partialName.ToUpper())
+                || (x.Title + " " + x.Description + " " + x.Genre).StartsWith(partialName.ToLower())
+                || (x.Title + " " + x.Description + " " + x.Genre).Contains(partialName)
+                || (x.Title + " " + x.Description + " " + x.Genre).Contains(partialName.ToUpper())
+                || (x.Title + " " + x.Description + " " + x.Genre).Contains(partialName.ToLower()))
                 .Where(x => x.Order == null)
                 .ToListAsync();
         }

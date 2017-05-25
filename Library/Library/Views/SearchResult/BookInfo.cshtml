@@ -15,6 +15,8 @@
                             <label class="one" style="color:white; font-size:150%">{{detailedBook.book.title}}</label>
                             <hr />
                             <label class="two" style="color:white; font-size:120%">{{detailedBook.book.description}}</label>
+                            <hr />
+                            <label class="two" style="color:white; font-size:120%">{{detailedBook.book.genre}}</label>
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -23,7 +25,7 @@
                         <label class="one" style="color:white; font-size:150%">Pages: {{detailedBook.book.pages}}</label>
                         <br />
                         <button class="btn btn-primary" style="width:100%; margin-bottom:10px" ng-click="readOnline()">Read Online</button>
-                        <button class="btn btn-success" style="width:100%" data-target="#confirm" data-toggle="modal">Buy</button>
+                        <button class="btn btn-success" style="width:100%" data-target="#confirm" data-toggle="modal">Order</button>
                     </div>
                 </div>
             </div>
@@ -74,7 +76,7 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Cancel</button>
-                    <button class="btn btn-primary" ng-click="orderBook()" data-dismiss="modal">Buy</button>
+                    <button class="btn btn-primary" ng-click="orderBook()" data-dismiss="modal">Order</button>
                 </div>
             </div>
         </div>

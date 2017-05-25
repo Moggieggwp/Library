@@ -9,6 +9,7 @@ namespace Library.Data.DTOs
         public string Description { get; set; }
         public decimal Fare { get; set; }
         public int Pages { get; set; }
+        public string Genre { get; set; }
         public DateTime IssueYear { get; set; }
         public string ImageName { get; set; }
         public string PathToReadOnline { get; set; }

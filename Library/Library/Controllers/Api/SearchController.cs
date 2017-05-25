@@ -68,7 +68,7 @@ namespace Library.Controllers.Api
         public async Task<bool> OrderBook([FromBody]int bookId)
         {
             try
-            {
+                {
                 var orderDate = DateTime.UtcNow;
                 var returnDate = DateTime.UtcNow.AddDays(7);
                 var user = await applicationUserManager.FindByEmailAsync(User.Identity.Name);

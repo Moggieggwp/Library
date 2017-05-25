@@ -65,7 +65,8 @@ namespace Library.Services
                 IssueYear = book.IssueYear.Date,
                 Pages = book.Pages,
                 ImageName = book.ImageName,
-                PathToReadOnline = book.PathToReadOnline
+                PathToReadOnline = book.PathToReadOnline,
+                Genre = book.Genre
             };
         }
 

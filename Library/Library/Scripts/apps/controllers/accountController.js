@@ -28,7 +28,7 @@
                     else {
                         var bookId = JSON.parse(data);
                         doOrderBook(bookId);
-                        window.location.replace("http://localhost:51620");
+                        //window.location.replace("http://localhost:51620");
                     }
                 });
             }

@@ -22,3 +22,4 @@ C:\Users\Dima\Documents\Library\Library\Library.Data\obj\Debug\Library.Data.Migr
 C:\Users\Dima\Documents\Library\Library\Library.Data\obj\Debug\Library.Data.Migrations.addedIdentityToDatabase.resources
 C:\Users\Dima\Documents\Library\Library\Library.Data\obj\Debug\Library.Data.Migrations.addedPathToReadOnline.resources
 C:\Users\Dima\Documents\Library\Library\Library.Data\obj\Debug\Library.Data.Migrations.changesInOrderReturn.resources
+C:\Users\Dima\Documents\Library\Library\Library.Data\obj\Debug\Library.Data.Migrations.addGenre.resources

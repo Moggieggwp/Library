@@ -40,27 +40,43 @@ namespace Library.Data.Migrations
             context.Books.Add(new Entities.Book
             {
                 ImageName = "harry1.jpg",
-                IssueYear = DateTime.Now,
+                IssueYear = DateTime.Now.AddYears(-20),
                 IsOrdered = false,
                 Description = "Harry Potter has no idea how famous he is. That's because he's being raised by his miserable aunt and uncle who are terrified Harry will learn that he's really a wizard, just as his parents were. But everything changes when Harry is summoned to attend an infamous school for wizards, and he begins to discover some clues about his illustrious birthright. From the surprising way he is greeted by a lovable giant, to the unique curriculum and colorful faculty at his unusual school, Harry finds himself drawn deep inside a mystical world he never knew existed and closer to his own noble destiny.",
                 Title = "Harry Potter and the Sorcerer's Stone",
                 Publisher = BloomsBaryPublisher,
                 Fare = 10,
                 Pages = 432,
-                PathToReadOnline = "http://harrypotter.scholastic.com/excerpts/HP_Book1_Chapter_Excerpt.pdf"
+                PathToReadOnline = "http://harrypotter.scholastic.com/excerpts/HP_Book1_Chapter_Excerpt.pdf",
+                Genre = "Fantasy, drama, young adult fiction, mystery, thriller"
             });
             context.SaveChanges();
             context.Books.Add(new Entities.Book
             {
                 ImageName = "harry2.jpg",
-                IssueYear = DateTime.Now,
+                IssueYear = DateTime.Now.AddYears(-19),
                 IsOrdered = false,
                 Description = "The Dursleys were so mean that hideous that summer that all Harry Potter wanted was to get back to the Hogwarts School for Witchcraft and Wizardry. But just as he's packing his bags, Harry receives a warning from a strange, impish creature named Dobby who says that if Harry Potter returns to Hogwarts, disaster will strike. And strike it does.For in Harry's second year at Hogwarts, fresh torments and horrors arise, including an outrageously stuck-up new professor, Gilderoy Lockheart, a spirit named Moaning Myrtle who haunts the girls' bathroom, and the unwanted attentions of Ron Weasley's younger sister, Ginny.",
                 Title = "Harry Potter And The Chamber Of Secrets",
                 Publisher = BloomsBaryPublisher,
                 Fare = 10,
                 Pages = 478,
-                PathToReadOnline = "http://harrypotter.scholastic.com/excerpts/HP_Book2_Chapter_Excerpt.pdf"
+                PathToReadOnline = "http://harrypotter.scholastic.com/excerpts/HP_Book2_Chapter_Excerpt.pdf",
+                Genre = "Fantasy, drama, young adult fiction, mystery, thriller"
+            });
+            context.SaveChanges();
+            context.Books.Add(new Entities.Book
+            {
+                ImageName = "harry3.jpg",
+                IssueYear = DateTime.Now.AddYears(-18),
+                IsOrdered = false,
+                Description = "Harry Potter is lucky to reach the age of thirteen, since he has already survived the murderous attacks of the feared Dark Lord on more than one occasion. But his hopes for a quiet term concentrating on Quidditch are dashed when a maniacal mass-murderer escapes from Azkaban, pursued by the soul-sucking Dementors who guard the prison. It's assumed that Hogwarts is the safest place for Harry to be. But is it a coincidence that he can feel eyes watching him in the dark, and should he be taking Professor Trelawney's ghoulish predictions seriously?",
+                Title = "Harry Potter And The Prisoner of Azkaban",
+                Publisher = BloomsBaryPublisher,
+                Fare = 10,
+                Pages = 435,
+                PathToReadOnline = "http://harrypotter.scholastic.com/excerpts/HP_Book3_Chapter_Excerpt.pdf",
+                Genre = "Fantasy, drama, young adult fiction, mystery, thriller"
             });
             context.SaveChanges();
 
@@ -74,7 +90,8 @@ namespace Library.Data.Migrations
                 Publisher = VintageBooksPublisher,
                 Fare = 15,
                 Pages = 600,
-                PathToReadOnline = "http://jeankaleb.com/ebooks/50Shades%20-%20of%20Grey.pdf"
+                PathToReadOnline = "http://jeankaleb.com/ebooks/50Shades%20-%20of%20Grey.pdf",
+                Genre = "Erotic romance"
             });
             context.SaveChanges();
 
@@ -82,9 +99,14 @@ namespace Library.Data.Migrations
             var FiftyShadesWriter = context.Writers.FirstOrDefault(w => w.FullName == "E. L. James");
             var HarryPotterBook1 = context.Books.FirstOrDefault(b=> b.Title == "Harry Potter and the Sorcerer's Stone");
             var HarryPotterBook2 = context.Books.FirstOrDefault(b => b.Title == "Harry Potter And The Chamber Of Secrets");
+            var HarryPotterBook3 = context.Books.FirstOrDefault(b => b.Title == "Harry Potter And The Prisoner of Azkaban");
             var FiftyShadesBook = context.Books.FirstOrDefault(b => b.Title == "Fifty Shades Of Grey");
             context.Participations.Add(new Entities.Participation { Book = HarryPotterBook1, Writer = HarryPotterWriter });
+            context.SaveChanges();
             context.Participations.Add(new Entities.Participation { Book = HarryPotterBook2, Writer = HarryPotterWriter });
+            context.SaveChanges();
+            context.Participations.Add(new Entities.Participation { Book = HarryPotterBook3, Writer = HarryPotterWriter });
+            context.SaveChanges();
             context.Participations.Add(new Entities.Participation { Book = FiftyShadesBook, Writer = FiftyShadesWriter });
             context.SaveChanges();
 
